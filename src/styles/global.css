@@ -773,6 +773,8 @@ main > .manifesto-block:first-child {
 .manifesto-signature .manifesto-close { margin: 0; }
 
 /* TYPING — character-level visibility for typewriter reveal */
+/* Hide typing-target until JS splits chars — prevents flash of untyped content */
+html.motion .typing-target:not(.split) { visibility: hidden; }
 html.motion .typing-target .ch { visibility: hidden; }
 html.motion .typing-target .ch.on { visibility: visible; }
 html.motion .typing-target.typed .ch { visibility: visible; }

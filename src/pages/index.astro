@@ -10,7 +10,7 @@ import Layout from '../layouts/Layout.astro';
 
     <section class="manifesto-block">
       <div class="manifesto-open typing-target">To whom it may concern:</div>
-      <h1 class="manifesto typing-target"><span class="red">Google</span> is no longer the only front door. When your customer asks an <span class="red">ai assistant</span>, the answer arrives — with or without your name in it. Getting named is the new <span class="red">visibility</span>. Are you in the <span class="red">answer</span>?</h1>
+      <h1 class="manifesto typing-target"><span class="red">Google</span> is no longer the only front door. When your customer asks an <span class="red">ai assistant</span>, the answer arrives — with or without your name in it. Getting named is the new <span class="red">visibility</span>. Are you in the <span class="red">answer?</span></h1>
     </section>
 
     <section class="op">
@@ -164,7 +164,7 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <section class="manifesto-block">
-      <p class="manifesto typing-target">Real data. Real <span class="red">decisions</span>. Every page for a reason.</p>
+      <p class="manifesto typing-target">Real data. Real <span class="red">decisions</span>. Every page for a reason. Every fix pointed at a specific signal — no ship on hope, no fix on hunch.</p>
     </section>
 
     <section class="block" id="decisions">
@@ -225,7 +225,7 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <section class="manifesto-block">
-      <p class="manifesto typing-target">Every number traced back to the <span class="red">signal</span> that moved it.</p>
+      <p class="manifesto typing-target">Every number traced back to the <span class="red">signal</span> that moved it. When visibility climbs, we can tell you which piece of work drove it. When it doesn't, we can tell you that too.</p>
     </section>
 
     <section class="block" id="loop">
@@ -267,7 +267,7 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <section class="manifesto-block">
-      <p class="manifesto typing-target"><span class="red">Guessing</span> is not a strategy.</p>
+      <p class="manifesto typing-target"><span class="red">Guessing</span> is not a strategy. Every recommendation carries the signal it came from. Every ship references the evidence that scoped it. Every case study shows the numbers that moved.</p>
     </section>
 
     <section class="block" id="proof">
@@ -629,6 +629,14 @@ import Layout from '../layouts/Layout.astro';
       }
       step();
     }
+    // Pre-split chars on ALL typing targets immediately.
+    // The .split class flips the CSS visibility rule so the parent
+    // becomes visible (but its .ch children stay hidden until .on).
+    // This eliminates the flash of raw text before typing starts.
+    typeTargets.forEach(function(el){
+      splitChars(el);
+      el.classList.add('split');
+    });
     var typeObs=new IntersectionObserver(function(entries){
       entries.forEach(function(e){
         if(e.isIntersecting&&!e.target.dataset.typed){
@@ -636,7 +644,6 @@ import Layout from '../layouts/Layout.astro';
           // Speed: 22ms per char for body, faster (14ms) for very short blocks
           var textLength=e.target.textContent.length;
           var speed=textLength<40?14:22;
-          splitChars(e.target);
           typeElement(e.target,speed);
           typeObs.unobserve(e.target);
         }
