@@ -347,6 +347,72 @@ section.block {
 }
 .sec-beat em { color: var(--oxblood); font-style: italic; font-weight: 500; }
 
+/* SECTION GRID — two-column layout with meta rail for interior pages */
+.block-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: clamp(32px, 5vw, 80px);
+  align-items: start;
+}
+.block-meta {
+  padding-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.block-meta-num {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(40px, 4.6vw, 64px);
+  line-height: 0.85;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+}
+.block-meta-cat {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 500;
+  padding-bottom: 12px;
+  border-bottom: 0.5px solid var(--rule-soft);
+}
+.block-meta-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.block-meta-item {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+}
+.block-meta-item strong {
+  color: var(--oxblood);
+  font-weight: 500;
+}
+
+/* PULL QUOTE — editorial statement block */
+.pull-quote {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(28px, 3.4vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  padding: clamp(24px, 4vh, 36px) 0;
+  margin: clamp(28px, 5vh, 48px) 0;
+  border-top: 0.5px solid var(--rule);
+  border-bottom: 0.5px solid var(--rule);
+  text-wrap: pretty;
+  max-width: 820px;
+}
+.pull-quote em { color: var(--oxblood); font-style: normal; }
+
 /* SIGNALS — grouped by surface */
 .signals-groups {
   display: flex;
@@ -780,6 +846,21 @@ html.motion .typing-target .ch.on { visibility: visible; }
 html.motion .typing-target.typed .ch { visibility: visible; }
 
 /* RESPONSIVE */
+@media (max-width: 900px) {
+  .block-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .block-meta {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 20px;
+  }
+  .block-meta-num { font-size: 36px; }
+  .block-meta-cat { border-bottom: none; padding-bottom: 0; }
+  .block-meta-items { flex-direction: row; flex-wrap: wrap; gap: 4px 16px; }
+}
 @media (max-width: 960px) {
   nav.top { margin-bottom: 60px; }
   .op-grid { grid-template-columns: 1fr; }
