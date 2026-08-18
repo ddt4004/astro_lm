@@ -1,0 +1,156 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Results — LinksMaxing"
+  description="Case studies showing the numbers that moved and the signals that pointed there."
+  activeNav="results"
+>
+  <div class="page-header">
+    <div class="page-eyebrow">Results</div>
+    <h1 class="page-title">The numbers <em>move.</em></h1>
+    <p class="page-lead">Every case study shows the metric that moved, the intervention that moved it, and the signals in the data that said what to do.</p>
+  </div>
+
+  <div class="case-list">
+    <a href="/results/case-study-01">
+      <div class="case-card">
+        <div class="case-meta">
+          <div class="case-label">Case study 01</div>
+          <div class="case-name">Residential cleaning</div>
+          <div class="case-info">St. George, UT · 30-day sample</div>
+          <div class="case-metric">
+            <span class="was">0</span>
+            <span class="arrow">→</span>
+            <span>8</span>
+          </div>
+          <div class="case-metric-cap">of 12 ai queries named</div>
+        </div>
+        <div class="case-body">
+          <div class="case-headline">From invisible to named on <em>two out of three</em> queries in a month.</div>
+          <div class="case-summary">Client had never been named by ChatGPT or Claude on the twelve queries a St. George homeowner would actually ask. We rebuilt the site on a crawler-native stack, fixed review schema hidden inside an iframe, and shipped service-area pages the assistants could retrieve.</div>
+          <span class="case-link">Read the full study →</span>
+          <div class="case-note">Illustrative sample. Real deltas publish as scans complete post-launch.</div>
+        </div>
+      </div>
+    </a>
+
+    <div class="case-card" style="opacity:0.5;">
+      <div class="case-meta">
+        <div class="case-label">Case study 02</div>
+        <div class="case-name">Fine dining</div>
+        <div class="case-info">Dallas, TX · in progress</div>
+        <div class="case-metric" style="color:var(--dim);">
+          <span>—</span>
+        </div>
+        <div class="case-metric-cap">baseline captured · scan pending</div>
+      </div>
+      <div class="case-body">
+        <div class="case-headline">Contemporary American restaurant appearing in <em>zero</em> Dallas cuisine queries.</div>
+        <div class="case-summary">Every dish, cocktail, and wine bottle lives inside PDFs invisible to AI assistants. The site wins one hyper-specific geographic query and disappears on every broader one. Rebuild in progress.</div>
+        <span class="case-note">Study publishes after post-launch scan lands.</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="cta-block">
+    <h2 class="cta-head">See where <em>you stand.</em></h2>
+    <p class="cta-sub">Every case study starts as a visibility check. Twenty minutes on a call, three to five days to run the scan.</p>
+    <a href="/scan" class="btn">Book a visibility check →</a>
+  </section>
+</Layout>
+
+<style>
+  .case-list {
+    padding-top: clamp(32px, 6vh, 60px);
+    border-top: 0.5px solid var(--rule);
+  }
+  .case-card {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: clamp(32px, 6vw, 72px);
+    padding: clamp(32px, 6vh, 56px) 0;
+    border-bottom: 0.5px solid var(--rule);
+    align-items: start;
+    transition: opacity 0.3s;
+  }
+  .case-card:hover { opacity: 0.85; }
+  a { text-decoration: none; color: inherit; }
+  .case-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-bottom: 10px;
+  }
+  .case-name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .case-info {
+    font-size: 12px;
+    color: var(--dim);
+    margin-bottom: 24px;
+  }
+  .case-metric {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(56px, 8vw, 96px);
+    line-height: 0.9;
+    color: var(--oxblood);
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    letter-spacing: -0.04em;
+    margin-top: 12px;
+  }
+  .case-metric .was { color: var(--dimmer); }
+  .case-metric .arrow { color: var(--dim); font-size: 0.55em; font-weight: 500; }
+  .case-metric-cap {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-top: 10px;
+  }
+  .case-headline {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(22px, 2.6vw, 30px);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin-bottom: 16px;
+    text-wrap: pretty;
+  }
+  .case-headline em { color: var(--oxblood); font-style: normal; }
+  .case-summary {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--muted);
+    margin-bottom: 18px;
+  }
+  .case-link {
+    color: var(--ink);
+    border-bottom: 1px solid var(--ink);
+    font-size: 12px;
+    font-weight: 500;
+    padding-bottom: 2px;
+    display: inline-block;
+  }
+  .case-note {
+    font-size: 10px;
+    color: var(--dimmer);
+    font-style: italic;
+    margin-top: 14px;
+  }
+  @media (max-width: 900px) {
+    .case-card { grid-template-columns: 1fr; gap: 24px; }
+  }
+</style>

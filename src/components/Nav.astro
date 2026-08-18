@@ -1,0 +1,24 @@
+---
+interface Props {
+  active?: string;
+}
+const { active } = Astro.props;
+---
+
+<nav class="top">
+  <a href="/" class="logo-block">
+    <div class="logo">linksmaxing</div>
+    <div class="logo-sub">dallas / tx</div>
+  </a>
+  <div class="nav-links">
+    <a href="/services" class={active === 'services' ? 'active' : ''}>Services</a>
+    <a href="/method" class={active === 'method' ? 'active' : ''}>Method</a>
+    <a href="/results" class={active === 'results' ? 'active' : ''}>Results</a>
+    <a href="/learn" class={active === 'learn' ? 'active' : ''}>Learn</a>
+    <a href="/contact" class={active === 'contact' ? 'active' : ''}>Contact</a>
+  </div>
+  <div class="lang">
+    <span class="lang-dot"></span>
+    <span>en</span>
+  </div>
+</nav>

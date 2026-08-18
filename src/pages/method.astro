@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Method — LinksMaxing"
+  description="How we correlate nine signals across three surfaces to produce a decision list. The methodology behind the work."
+  activeNav="method"
+>
+  <div class="page-header">
+    <div class="page-eyebrow">Method</div>
+    <h1 class="page-title">The <em>correlation</em> is the differentiator.</h1>
+    <p class="page-lead">Any agency can run a site audit. Any agency can now claim they "test AI visibility." What almost nobody is doing is running multiple independent methodologies against the same business and reporting where they converge.</p>
+  </div>
+
+  <section class="block">
+    <div class="sec-num">01 / why correlate</div>
+    <h2 class="sec-head">Single signals <em>lie.</em></h2>
+    <div class="article-body" style="border-top:none;padding-top:0;">
+      <p>An AI scan alone tells you where you're being named. It doesn't tell you why. A site audit alone tells you what's broken. It doesn't tell you which broken thing is actually costing you retrieval. A GSC report tells you what queries drive impressions today. It doesn't tell you what your site is prepared to answer tomorrow.</p>
+      <p><strong>Each signal is a partial view.</strong> The mistake most agencies make is treating one of them as sufficient.</p>
+      <p>Correlation is where the actual work lives. When three independent methodologies point the same direction — the scan says "you're not named for cleaning queries in your metro," the site audit says "your reviews are trapped inside an iframe assistants can't read," and the source graph shows the assistants are retrieving competitor review pages instead — that's not an opinion. That's evidence.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="sec-num">02 / the loop</div>
+    <h2 class="sec-head">Baseline. Correlate. Ship. <em>Measure. Repeat.</em></h2>
+    <div class="article-body" style="border-top:none;padding-top:0;">
+      <h3>1 · Baseline</h3>
+      <p>Before we touch anything, we capture where the business stands across every signal. Ten to twenty queries relevant to the business. Site structure. GBP state. GSC pull. Competitor entity claims. Reviews. All timestamped and saved.</p>
+
+      <h3>2 · Correlate</h3>
+      <p>The correlation engine looks at where signals agree and where they conflict. Signals that agree point to work with high confidence. Signals that conflict point to further investigation. The output is a ranked list — not opinions, not gut calls, just prioritized decisions with their supporting signals attached.</p>
+
+      <h3>3 · Ship</h3>
+      <p>The work that comes out of the decision list is deliberately concrete: new pages built to answer specific queries, structural fixes to specific blockers, GBP changes to specific fields, entity claims where competitors have them and you don't. Every ship is annotated with the signal it addresses.</p>
+
+      <h3>4 · Measure</h3>
+      <p>After shipping, we re-run the baseline scan on cadence. The delta on every measured signal is tracked back to which piece of work moved it. Some ships move the number; some don't. Both outcomes get reported.</p>
+
+      <h3>5 · Repeat</h3>
+      <p>The next decision list is smarter than the last one, because the correlation engine has more evidence of what moves and what doesn't in this specific business's category and geography. Every cycle sharpens the model.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="sec-num">03 / tools</div>
+    <h2 class="sec-head">We built <em>our own.</em></h2>
+    <div class="article-body" style="border-top:none;padding-top:0;">
+      <p>The tooling wasn't available off the shelf, so we built it. A multi-engine AI scanner that queries ChatGPT, Claude, and Google AI in parallel and records who gets named. A source-retrieval mapper that catalogs which pages each engine reads. A structural site auditor that scores schema, NAP consistency, crawler access per bot, and heading hierarchy. A correlation engine that stitches all of it together with Google Search Console data.</p>
+      <p>These tools stay proprietary — the specific mechanisms aren't the pitch. But the outputs go on every case study, so you can see the shape of what they produce.</p>
+    </div>
+  </section>
+
+  <section class="cta-block">
+    <h2 class="cta-head">See it run on <em>your business.</em></h2>
+    <p class="cta-sub">The visibility check is the correlation engine pointed at your business. About a week, and you have real data on where you stand — regardless of whether you ever work with us again.</p>
+    <a href="/scan" class="btn">Book a visibility check →</a>
+  </section>
+</Layout>

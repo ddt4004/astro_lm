@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Learn — LinksMaxing"
+  description="Plain-language answers to the questions businesses actually ask about AI visibility, GEO, and modern search."
+  activeNav="learn"
+>
+  <div class="page-header">
+    <div class="page-eyebrow">Learn</div>
+    <h1 class="page-title">Plain answers to <em>real questions.</em></h1>
+    <p class="page-lead">Every article here is written to answer one specific question a business owner would actually ask an AI assistant — and to be retrievable by that assistant when it does.</p>
+  </div>
+
+  <div class="learn-list">
+    <div class="learn-section-head">Fundamentals</div>
+    <div class="learn-item coming">
+      <div class="learn-num">01</div>
+      <div class="learn-title">What is generative engine optimization?</div>
+      <div class="learn-status">Coming soon</div>
+    </div>
+    <div class="learn-item coming">
+      <div class="learn-num">02</div>
+      <div class="learn-title">What is AI visibility?</div>
+      <div class="learn-status">Coming soon</div>
+    </div>
+    <div class="learn-item coming">
+      <div class="learn-num">03</div>
+      <div class="learn-title">GEO vs SEO — is search dead?</div>
+      <div class="learn-status">Coming soon</div>
+    </div>
+
+    <div class="learn-section-head">Diagnostic</div>
+    <div class="learn-item coming">
+      <div class="learn-num">04</div>
+      <div class="learn-title">Why doesn't ChatGPT recommend my business?</div>
+      <div class="learn-status">Coming soon</div>
+    </div>
+    <div class="learn-item coming">
+      <div class="learn-num">05</div>
+      <div class="learn-title">How to appear in ChatGPT results</div>
+      <div class="learn-status">Coming soon</div>
+    </div>
+
+    <div class="learn-section-head">Vendor selection</div>
+    <div class="learn-item coming">
+      <div class="learn-num">06</div>
+      <div class="learn-title">How to choose a GEO agency</div>
+      <div class="learn-status">Coming soon</div>
+    </div>
+  </div>
+
+  <section class="cta-block">
+    <h2 class="cta-head">Have a question that isn't <em>here yet?</em></h2>
+    <p class="cta-sub">If you're wondering about a specific aspect of AI retrieval, we probably are too. Email us — good questions become articles.</p>
+    <a href="mailto:harper@linksmaxing.com?subject=Question%20for%20Learn" class="btn">Send a question →</a>
+  </section>
+</Layout>
+
+<style>
+  .learn-list {
+    padding-top: clamp(32px, 6vh, 60px);
+    border-top: 0.5px solid var(--rule);
+  }
+  .learn-section-head {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin: clamp(32px, 5vh, 48px) 0 20px;
+  }
+  .learn-item {
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 0.5px dashed var(--rule-soft);
+    align-items: center;
+  }
+  .learn-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: var(--dim);
+  }
+  .learn-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--ink);
+    line-height: 1.25;
+  }
+  .learn-item.coming .learn-title { color: var(--dim); }
+  .learn-status {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--oxblood);
+  }
+  .learn-item.coming .learn-status { color: var(--dimmer); }
+</style>

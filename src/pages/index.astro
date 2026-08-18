@@ -1,17 +1,621 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  title="LinksMaxing — Real data. Real decisions."
+  description="LinksMaxing correlates the nine signals AI assistants read and hands you the decisions that get your business named. No guessing."
+  showColophon={true}
+>
+
+    <section class="manifesto-block">
+      <div class="manifesto-open typing-target">To whom it may concern:</div>
+      <h1 class="manifesto typing-target"><span class="red">Google</span> is no longer the only front door. When your customer asks an <span class="red">ai assistant</span>, the answer arrives — with or without your name in it. Getting named is the new <span class="red">visibility</span>. Are you in the <span class="red">answer</span>?</h1>
+    </section>
+
+    <section class="op">
+      <h2 class="chapter-break">This is the <em>work.</em></h2>
+      <div class="op-grid">
+        <div>
+          <p class="op-copy"><strong>Nine signals.</strong> Correlated in real time. <strong>A decision list</strong> you can act on Monday morning. Every page shipped for a reason. Every number traced back to the signal that moved it.</p>
+          <a href="/scan" class="op-cta">Run a visibility check →</a>
+        </div>
+        <div class="scan">
+          <div class="scan-head">
+            <span>monitoring</span>
+            <span class="scan-live"><span class="scan-live-dot"></span>live</span>
+          </div>
+          <div class="scan-query">
+            <span class="scan-query-count">query 1 of 15</span>
+            <span class="scan-query-text">"best italian restaurant austin tx"</span>
+          </div>
+          <div class="scan-engines">
+            <div class="scan-row">
+              <div class="scan-row-top">
+                <span class="scan-name">ChatGPT</span>
+                <span class="scan-status scan-ok">✓ named</span>
+              </div>
+              <div class="scan-bar"><div class="scan-bar-fill" style="width:100%"></div></div>
+            </div>
+            <div class="scan-row">
+              <div class="scan-row-top">
+                <span class="scan-name">Claude</span>
+                <span class="scan-status scan-scanning">scanning…</span>
+              </div>
+              <div class="scan-bar"><div class="scan-bar-fill" style="width:52%"></div></div>
+            </div>
+            <div class="scan-row">
+              <div class="scan-row-top">
+                <span class="scan-name">Google AI</span>
+                <span class="scan-status scan-ok">✓ named</span>
+              </div>
+              <div class="scan-bar"><div class="scan-bar-fill" style="width:100%"></div></div>
+            </div>
+          </div>
+          <div class="scan-log">
+            <div class="scan-log-head">activity</div>
+            <div class="scan-log-items">
+              <div class="scan-log-line"><span class="scan-log-time">--:--:--</span><span class="scan-log-msg">restaurant · 8 of 12 named</span></div>
+              <div class="scan-log-line"><span class="scan-log-time">--:--:--</span><span class="scan-log-msg">correlation cycle · complete</span></div>
+              <div class="scan-log-line"><span class="scan-log-time">--:--:--</span><span class="scan-log-msg">chatgpt · query dispatched</span></div>
+            </div>
+          </div>
+          <div class="scan-foot">
+            <svg class="scan-sparkline" viewBox="0 0 80 16" preserveAspectRatio="none" aria-hidden="true">
+              <polyline points="0,12 6,10 12,13 18,8 24,11 30,6 36,9 42,4 48,7 54,3 60,8 66,5 72,7 80,4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.55"/>
+            </svg>
+            <span class="scan-foot-stat">146 scans / hour</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="manifesto-block">
+      <p class="manifesto typing-target">Getting named isn't luck. It's the correlation of every <span class="red">signal</span> the assistants read: the questions asked, the pages retrieved, the entities claimed, the gaps unfilled.</p>
+    </section>
+
+    <section class="block" id="signals">
+      <div class="sec-num">01 / signals</div>
+      <h2 class="sec-head">Nine signals. <em>One correlated view.</em></h2>
+      <p class="sec-beat">Everyone else watches one signal. Maybe two. <em>Nine is where correlation lives.</em></p>
+      <div class="signals-grid">
+        <div class="signal">
+          <div class="signal-num">01</div>
+          <div class="signal-name">AI recommendations</div>
+          <div class="signal-desc">Every query your customer might ask, run against ChatGPT, Claude, and Google AI Overviews. Who names you. Who names competitors. Who names nobody.</div>
+          <span class="signal-tool">Proprietary scanner</span>
+        </div>
+        <div class="signal">
+          <div class="signal-num">02</div>
+          <div class="signal-name">Search Console</div>
+          <div class="signal-desc">What queries actually drive impressions today. What ranks. What clicks. The gap between what customers ask and what your site answers.</div>
+          <span class="signal-tool">GSC API</span>
+        </div>
+        <div class="signal">
+          <div class="signal-num">03</div>
+          <div class="signal-name">Source retrieval</div>
+          <div class="signal-desc">Which pages each assistant actually reads to build its answer. The source graph nobody else maps.</div>
+          <span class="signal-tool">Scan analysis</span>
+        </div>
+        <div class="signal">
+          <div class="signal-num">04</div>
+          <div class="signal-name">Site structure</div>
+          <div class="signal-desc">Whether crawlers can even reach what you publish. Schema validity. NAP consistency. Heading hierarchy.</div>
+          <span class="signal-tool">Structural audit</span>
+        </div>
+        <div class="signal">
+          <div class="signal-num">05</div>
+          <div class="signal-name">Competitor entities</div>
+          <div class="signal-desc">Which categories, licenses, credentials, and citations your competitors claim that you don't.</div>
+          <span class="signal-tool">Entity audit</span>
+        </div>
+        <div class="signal">
+          <div class="signal-num">06</div>
+          <div class="signal-name">Google Business Profile</div>
+          <div class="signal-desc">Categories, photos, review response, posts, hours accuracy. The signals Google feeds back to itself.</div>
+          <span class="signal-tool">GBP data</span>
+        </div>
+        <div class="signal">
+          <div class="signal-num">07</div>
+          <div class="signal-name">Reviews</div>
+          <div class="signal-desc">Sentiment, volume, response cadence, and — critically — what phrases customers use that AI can re-quote.</div>
+          <span class="signal-tool">Review analysis</span>
+        </div>
+        <div class="signal">
+          <div class="signal-num">08</div>
+          <div class="signal-name">Content gaps</div>
+          <div class="signal-desc">Questions your customers ask that your site doesn't yet answer. The prescriptive side of GSC.</div>
+          <span class="signal-tool">Content audit</span>
+        </div>
+        <div class="signal">
+          <div class="signal-num">09</div>
+          <div class="signal-name">Technical SEO</div>
+          <div class="signal-desc">Core Web Vitals, JavaScript rendering, sitemap health, canonical hygiene, robots access per crawler.</div>
+          <span class="signal-tool">Site audit</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="manifesto-block">
+      <p class="manifesto typing-target">Real data. Real <span class="red">decisions</span>. Every page for a reason.</p>
+    </section>
+
+    <section class="block" id="decisions">
+      <div class="sec-num">02 / decisions</div>
+      <h2 class="sec-head">Every page. Every fix. <em>For a reason.</em></h2>
+      <p class="sec-beat">No page ships on instinct. <em>No fix on hunch.</em></p>
+      <div class="decisions">
+        <div class="decision">
+          <div class="decision-num">01</div>
+          <div class="decision-body">
+            <div class="decision-name">Site rebuild</div>
+            <div class="decision-desc">Crawler-native architecture on Astro. Server-rendered, zero-JS by default, structured for retrieval.</div>
+          </div>
+        </div>
+        <div class="decision">
+          <div class="decision-num">02</div>
+          <div class="decision-body">
+            <div class="decision-name">Answer pages</div>
+            <div class="decision-desc">Every query your customers ask, given a page shaped as an answer. Retrievable by name.</div>
+          </div>
+        </div>
+        <div class="decision">
+          <div class="decision-num">03</div>
+          <div class="decision-body">
+            <div class="decision-name">Entity graph</div>
+            <div class="decision-desc">Schema, categories, credentials, service areas. Claimed and structured so assistants understand what you are.</div>
+          </div>
+        </div>
+        <div class="decision">
+          <div class="decision-num">04</div>
+          <div class="decision-body">
+            <div class="decision-name">Evidence pages</div>
+            <div class="decision-desc">Case studies, reviews, credentials, dated observations. What the assistants cite when they name you.</div>
+          </div>
+        </div>
+        <div class="decision">
+          <div class="decision-num">05</div>
+          <div class="decision-body">
+            <div class="decision-name">GBP management</div>
+            <div class="decision-desc">Posts, review response, category and photo hygiene. Weekly cadence, tracked against the scan.</div>
+          </div>
+        </div>
+        <div class="decision">
+          <div class="decision-num">06</div>
+          <div class="decision-body">
+            <div class="decision-name">Technical fixes</div>
+            <div class="decision-desc">Schema, JSON-LD, sitemap, crawler access. The blocker list that makes everything else possible.</div>
+          </div>
+        </div>
+        <div class="decision">
+          <div class="decision-num">07</div>
+          <div class="decision-body">
+            <div class="decision-name">Measurement</div>
+            <div class="decision-desc">Baseline before we ship. Cadence scans after. Delta reports tied back to the signal that moved.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="manifesto-block">
+      <p class="manifesto typing-target">Every number traced back to the <span class="red">signal</span> that moved it.</p>
+    </section>
+
+    <section class="block" id="loop">
+      <div class="sec-num">03 / loop</div>
+      <h2 class="sec-head">The work <em>compounds.</em></h2>
+      <p class="sec-beat">Every cycle sharpens the correlation. <em>Nothing carries forward on hope.</em></p>
+      <div class="loop-row">
+        <div class="loop-step">
+          <div class="loop-num">01</div>
+          <div class="loop-name">Baseline</div>
+          <div class="loop-desc">Where you stand now, across every signal.</div>
+          <span class="loop-arrow">→</span>
+        </div>
+        <div class="loop-step">
+          <div class="loop-num">02</div>
+          <div class="loop-name">Correlate</div>
+          <div class="loop-desc">Which signals point to which decisions.</div>
+          <span class="loop-arrow">→</span>
+        </div>
+        <div class="loop-step">
+          <div class="loop-num">03</div>
+          <div class="loop-name">Ship</div>
+          <div class="loop-desc">The pages, fixes, and entities that move the number.</div>
+          <span class="loop-arrow">→</span>
+        </div>
+        <div class="loop-step">
+          <div class="loop-num">04</div>
+          <div class="loop-name">Measure</div>
+          <div class="loop-desc">Re-scan on cadence. Track the delta per signal.</div>
+          <span class="loop-arrow">→</span>
+        </div>
+        <div class="loop-step">
+          <div class="loop-num">05</div>
+          <div class="loop-name">Repeat</div>
+          <div class="loop-desc">The next decision list is smarter than the last.</div>
+        </div>
+      </div>
+      <p class="loop-note">Every cycle sharpens the correlation. What worked stays. What didn't gets rewritten. Nothing carries forward on hope.</p>
+    </section>
+
+    <section class="manifesto-block">
+      <p class="manifesto typing-target"><span class="red">Guessing</span> is not a strategy.</p>
+    </section>
+
+    <section class="block" id="proof">
+      <div class="sec-num">04 / proof</div>
+      <h2 class="sec-head">The numbers <em>move.</em></h2>
+      <p class="sec-beat">Signal said to fix it. Fix shipped. <em>Number moved.</em></p>
+      <div class="proof">
+        <div>
+          <div class="proof-label">Case study 01</div>
+          <div class="proof-client">Residential cleaning</div>
+          <div class="proof-loc">St. George, UT · 30-day sample</div>
+          <div class="metric">
+            <div class="metric-big">
+              <span class="metric-was">0</span>
+              <span class="metric-arrow">→</span>
+              <span data-count="8">8</span>
+            </div>
+            <div class="metric-cap">of 12 ai recommendation queries</div>
+          </div>
+        </div>
+        <div>
+          <p class="proof-story">Client had never been named by ChatGPT or Claude on the twelve queries a St. George homeowner would actually ask. We rebuilt the site on a crawler-native stack, fixed review schema that was hidden inside an iframe, and shipped service-area pages the assistants could retrieve. Named on eight of the twelve within thirty days.</p>
+          <div class="proof-signals">
+            <div class="proof-signals-label">Signals that pointed to the fix</div>
+            <div class="proof-signals-list"><em>Source retrieval</em> · <em>Site structure</em> · <em>Reviews</em> · <em>Content gaps</em></div>
+          </div>
+          <a href="/results/case-study-01" class="proof-link">Read the full study →</a>
+          <p class="proof-note">Illustrative sample. Real deltas publish as scans complete post-launch.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pub">
+      <div>
+        <div class="pub-label">Publication</div>
+        <div class="pub-name">The AI Visibility Index</div>
+      </div>
+      <div>
+        <p class="pub-copy"><strong>Quarterly.</strong> How ChatGPT, Claude, and Google AI Overviews recommend local businesses across the top U.S. metros. Original data. Named winners. Named losers. Published by LinksMaxing because nobody else is measuring it at this depth.</p>
+        <span class="pub-eta">First report · Q1 2027</span>
+      </div>
+    </section>
+
+    <section class="final" id="final">
+      <h2 class="final-head typing-target">Be in the <em>answer.</em></h2>
+      <p class="final-sub">Every engagement starts with a real conversation. Twenty minutes, a visibility scan of your business against the assistants your customers use, and an honest read on what it would take to move the number.</p>
+      <a href="mailto:harper@linksmaxing.com" class="final-btn">Book a call →</a>
+    </section>
+
+    <section class="manifesto-block manifesto-signature">
+      <div class="manifesto-close typing-target">— The LinksMaxing <em>Manifesto</em> · Dallas · 2026</div>
+    </section>
+
+</Layout>
+
+<script is:inline>
+(function(){
+  if(!document.documentElement.classList.contains('motion'))return;
+
+  // 1. Reveal on scroll — section headers, publication name, final CTA, scan card, case study copy
+  var revealSel='.sec-head, .final-head, .pub-name, .scan, .metric-cap, .proof-story';
+  var revealObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in-view');revealObs.unobserve(e.target);}
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -60px 0px'});
+  document.querySelectorAll(revealSel).forEach(function(el){revealObs.observe(el);});
+
+  // 2. Signals grid — staggered reveal, ~60ms between each
+  var signalObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.querySelectorAll('.signal').forEach(function(s,i){
+          setTimeout(function(){s.classList.add('in-view');},i*60);
+        });
+        signalObs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.1});
+  var grid=document.querySelector('.signals-grid');
+  if(grid)signalObs.observe(grid);
+
+  // 3. Metric count-up 0 → data-count value, ease-out-cubic over 1.2s
+  var metricObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var el=e.target,target=parseInt(el.dataset.count,10),dur=1200,start=performance.now();
+        el.textContent='0';
+        function step(now){
+          var p=Math.min((now-start)/dur,1);
+          var eased=1-Math.pow(1-p,3);
+          el.textContent=Math.round(target*eased);
+          if(p<1)requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+        metricObs.unobserve(el);
+      }
+    });
+  },{threshold:0.5});
+  var metric=document.querySelector('[data-count]');
+  if(metric)metricObs.observe(metric);
+
+  // 4. Loop steps — sequential activation as section enters view
+  var loopObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.querySelectorAll('.loop-step').forEach(function(s,i){
+          setTimeout(function(){s.classList.add('active');},i*320);
+        });
+        loopObs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.3});
+  var loop=document.querySelector('.loop-row');
+  if(loop)loopObs.observe(loop);
+
+  // 5. Scan card — Level 2 live monitoring surface
+  //    Drives: engine cycle + progress bars, query rotation, activity log timestamps.
+  //    All intervals start/stop with viewport visibility.
+  var scan=document.querySelector('.scan');
+  if(scan){
+    var rows=scan.querySelectorAll('.scan-row');
+    var queryTextEl=scan.querySelector('.scan-query-text');
+    var queryCountEl=scan.querySelector('.scan-query-count');
+    var logItemsEl=scan.querySelector('.scan-log-items');
+
+    var queries=[
+      'best italian restaurant austin tx',
+      'emergency plumber nashville',
+      'top rated dentist portland oregon',
+      'family law attorney boulder',
+      'yoga studio charleston sc',
+      'hvac repair boise idaho',
+      '24 hour vet tucson arizona',
+      'wedding photographer sacramento',
+      'boutique hotel raleigh nc',
+      'japanese restaurant providence',
+      'commercial roofing salt lake city',
+      'personal trainer kansas city',
+      'cajun restaurant new orleans',
+      'landscaping service san diego',
+      'auto body shop denver colorado'
+    ];
+    var logPool=[
+      'restaurant · 8 of 12 named',
+      'plumber · scan complete',
+      'dental practice · baseline captured',
+      'cleaning service · signal update',
+      'attorney · 5 of 9 named',
+      'contractor · gbp refreshed',
+      'salon · schema validated',
+      'chatgpt · query dispatched',
+      'claude · response received',
+      'gsc data · refreshed',
+      'correlation cycle · complete',
+      'signal graph · updated',
+      'competitor scan · complete',
+      'review sentiment · pulled',
+      'source retrieval · mapped',
+      'google ai · response 340ms',
+      'gbp signals · updated',
+      'delta report · generated',
+      'entity claim · verified',
+      'nap consistency · checked'
+    ];
+
+    function pad(n){return n<10?'0'+n:''+n;}
+    function timeStr(d){return pad(d.getHours())+':'+pad(d.getMinutes())+':'+pad(d.getSeconds());}
+    function randMsg(prev){
+      var m=logPool[Math.floor(Math.random()*logPool.length)];
+      // avoid immediate repeat
+      if(m===prev)m=logPool[(logPool.indexOf(m)+1)%logPool.length];
+      return m;
+    }
+
+    // Engine state — which row is currently "scanning"
+    var activeEngine=1; // Claude is the initial scanning engine per HTML
+    function updateEngines(newActive){
+      rows.forEach(function(row,i){
+        var status=row.querySelector('.scan-status');
+        var bar=row.querySelector('.scan-bar-fill');
+        if(i===newActive){
+          status.textContent='scanning…';
+          status.className='scan-status scan-scanning';
+          if(bar){
+            bar.style.transition='none';
+            bar.style.width='0%';
+            requestAnimationFrame(function(){
+              bar.style.transition='width 2s ease-out';
+              bar.style.width=(Math.floor(Math.random()*40)+35)+'%';
+            });
+          }
+        }else{
+          status.textContent='✓ named';
+          status.className='scan-status scan-ok';
+          if(bar){
+            bar.style.transition='width 0.35s ease';
+            bar.style.width='100%';
+          }
+        }
+      });
+      activeEngine=newActive;
+    }
+    function cycleEngine(){ updateEngines((activeEngine+1)%rows.length); }
+
+    // Query rotation
+    var queryIdx=0;
+    function cycleQuery(){
+      if(!queryTextEl||!queryCountEl)return;
+      queryTextEl.classList.add('fading');
+      setTimeout(function(){
+        queryIdx=(queryIdx+1)%queries.length;
+        queryTextEl.textContent='"'+queries[queryIdx]+'"';
+        queryCountEl.textContent='query '+(queryIdx+1)+' of '+queries.length;
+        queryTextEl.classList.remove('fading');
+      },300);
+    }
+
+    // Activity log
+    var lastMsg='';
+    function seedLog(){
+      if(!logItemsEl)return;
+      var now=new Date();
+      var seeds=[
+        {offset:8,msg:'restaurant · 8 of 12 named'},
+        {offset:22,msg:'correlation cycle · complete'},
+        {offset:41,msg:'chatgpt · query dispatched'}
+      ];
+      logItemsEl.innerHTML=seeds.map(function(s){
+        var t=new Date(now.getTime()-s.offset*1000);
+        return '<div class="scan-log-line"><span class="scan-log-time">'+timeStr(t)+'</span><span class="scan-log-msg">'+s.msg+'</span></div>';
+      }).join('');
+      lastMsg=seeds[0].msg;
+    }
+    function addLog(){
+      if(!logItemsEl)return;
+      var msg=randMsg(lastMsg);
+      lastMsg=msg;
+      var line=document.createElement('div');
+      line.className='scan-log-line';
+      line.innerHTML='<span class="scan-log-time">'+timeStr(new Date())+'</span><span class="scan-log-msg">'+msg+'</span>';
+      logItemsEl.insertBefore(line,logItemsEl.firstChild);
+      // Keep max 4 entries
+      while(logItemsEl.children.length>4){
+        logItemsEl.removeChild(logItemsEl.lastChild);
+      }
+    }
+
+    // Start/stop cycles based on viewport visibility
+    var engineIv=null,queryIv=null,logIv=null,seeded=false;
+    var scanObs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          if(!seeded){seedLog();seeded=true;}
+          if(!engineIv)engineIv=setInterval(cycleEngine,3500);
+          if(!queryIv)queryIv=setInterval(cycleQuery,4500);
+          if(!logIv)logIv=setInterval(addLog,7500);
+        }else{
+          if(engineIv){clearInterval(engineIv);engineIv=null;}
+          if(queryIv){clearInterval(queryIv);queryIv=null;}
+          if(logIv){clearInterval(logIv);logIv=null;}
+        }
+      });
+    },{threshold:0.25});
+    scanObs.observe(scan);
+  }
+
+  // 6. Apart-style scroll spotlight — walks reading focus down manifesto 2
+  var spotTargets=document.querySelectorAll('.spotlight .manifesto');
+  if(spotTargets.length){
+    // Wrap each word in a span, preserving existing element structure (like .red)
+    spotTargets.forEach(function(target){
+      var walker=document.createTreeWalker(target,NodeFilter.SHOW_TEXT,null,false);
+      var textNodes=[],n;
+      while(n=walker.nextNode())textNodes.push(n);
+      textNodes.forEach(function(tn){
+        var parts=tn.textContent.split(/(\s+)/);
+        var frag=document.createDocumentFragment();
+        parts.forEach(function(p){
+          if(/\S/.test(p)){
+            var s=document.createElement('span');
+            s.className='word';
+            s.textContent=p;
+            frag.appendChild(s);
+          }else if(p.length){
+            frag.appendChild(document.createTextNode(p));
+          }
+        });
+        tn.parentNode.replaceChild(frag,tn);
+      });
+    });
+
+    var wordEls=document.querySelectorAll('.spotlight .word');
+    var spotRaf=null;
+    function updateSpot(){
+      var vh=window.innerHeight;
+      var readingLine=vh*0.7;
+      var band=100;
+      // Skip work if no spotlight target is near viewport
+      var anyClose=false;
+      spotTargets.forEach(function(t){
+        var r=t.getBoundingClientRect();
+        if(r.bottom>-vh&&r.top<vh*1.5)anyClose=true;
+      });
+      if(!anyClose){spotRaf=null;return;}
+      wordEls.forEach(function(w){
+        var r=w.getBoundingClientRect();
+        var center=r.top+r.height/2;
+        var dist=center-readingLine;
+        var op;
+        if(dist<-band)op=1;
+        else if(dist>0)op=0.2;
+        else op=0.2+0.8*(-dist/band);
+        w.style.opacity=op;
+      });
+      spotRaf=null;
+    }
+    window.addEventListener('scroll',function(){
+      if(!spotRaf)spotRaf=requestAnimationFrame(updateSpot);
+    },{passive:true});
+    window.addEventListener('resize',function(){
+      if(!spotRaf)spotRaf=requestAnimationFrame(updateSpot);
+    });
+    updateSpot();
+  }
+
+  // 7. Typewriter — types each manifesto block as it enters viewport.
+  //    Splits text nodes into per-character spans, then reveals sequentially.
+  //    Preserves existing markup (like .red spans) by walking text nodes only.
+  var typeTargets=document.querySelectorAll('.typing-target');
+  if(typeTargets.length){
+    function splitChars(root){
+      var walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null,false);
+      var nodes=[],n;
+      while(n=walker.nextNode())nodes.push(n);
+      nodes.forEach(function(tn){
+        var frag=document.createDocumentFragment();
+        var text=tn.textContent;
+        for(var i=0;i<text.length;i++){
+          var s=document.createElement('span');
+          s.className='ch';
+          s.textContent=text[i];
+          frag.appendChild(s);
+        }
+        tn.parentNode.replaceChild(frag,tn);
+      });
+    }
+    function typeElement(root,speed){
+      var chars=root.querySelectorAll('.ch');
+      var i=0;
+      function step(){
+        if(i>=chars.length){
+          root.classList.add('typed');
+          return;
+        }
+        chars[i].classList.add('on');
+        i++;
+        setTimeout(step,speed);
+      }
+      step();
+    }
+    var typeObs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting&&!e.target.dataset.typed){
+          e.target.dataset.typed='1';
+          // Speed: 22ms per char for body, faster (14ms) for very short blocks
+          var textLength=e.target.textContent.length;
+          var speed=textLength<40?14:22;
+          splitChars(e.target);
+          typeElement(e.target,speed);
+          typeObs.unobserve(e.target);
+        }
+      });
+    },{threshold:0.35,rootMargin:'0px 0px -80px 0px'});
+    typeTargets.forEach(function(el){typeObs.observe(el);});
+  }
+})();
+</script>

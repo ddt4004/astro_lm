@@ -1,0 +1,176 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Residential Cleaning · St. George — LinksMaxing case study"
+  description="From invisible to named on 8 of 12 AI queries in thirty days. The signals that pointed to the fix, and the fixes we shipped."
+  activeNav="results"
+>
+  <div class="page-header" style="padding-bottom:24px;">
+    <div class="breadcrumb"><a href="/results">Results</a> · Case study 01</div>
+    <h1 class="page-title" style="font-size:clamp(36px,6vw,72px);">Named on <em>8 of 12</em> AI queries in thirty days.</h1>
+  </div>
+
+  <div class="meta">
+    <div class="meta-item">
+      <div class="meta-label">Industry</div>
+      <div class="meta-value">Residential cleaning</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Location</div>
+      <div class="meta-value">St. George, UT</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Engagement</div>
+      <div class="meta-value">Rebuild + retainer</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Duration</div>
+      <div class="meta-value">30-day sample</div>
+    </div>
+  </div>
+
+  <div class="cs-metric-hero">
+    <div>
+      <div class="cs-big-metric">
+        <span class="was">0</span>
+        <span class="arrow">→</span>
+        <span>8</span>
+      </div>
+      <div class="cs-big-cap">of 12 ai recommendation queries</div>
+    </div>
+    <div>
+      <p class="cs-summary">Client had never been named by ChatGPT or Claude on the twelve queries a St. George homeowner would actually ask. Thirty days after the rebuild, they were <em>named on two out of three.</em></p>
+    </div>
+  </div>
+
+  <div class="article-body" style="border-top:none;padding-top:0;">
+    <p><em style="color:var(--dim);">[Placeholder case study — real deltas publish as post-launch scans complete. Numbers illustrative.]</em></p>
+
+    <h2>The situation</h2>
+    <p>A residential cleaning service in St. George, Utah — competent operation, strong local reputation, five-star reviews on Google. But when we ran a visibility check against the twelve most common queries a local homeowner might ask an AI assistant ("best house cleaners in St. George", "eco friendly cleaning southern utah", "same day house cleaning near me", and so on), they were named on <strong>zero</strong> of them. Not one AI assistant recommended them.</p>
+    <p>The site was a template WordPress build from 2019. Reviews were pulled in from Google via an embedded widget that AI crawlers couldn't parse. Service area coverage lived in a footer paragraph, not a structured schema. And the site's category — "residential cleaning" — appeared exactly once in the entire HTML.</p>
+
+    <h2>What the signals said</h2>
+    <p>The correlation engine surfaced the pattern immediately. Three signals pointed to the same root cause:</p>
+
+    <div class="signal-attribution">
+      <div class="signal-attribution-label">Signals that pointed to the fix</div>
+      <div><em>Source retrieval</em> — competitors' review pages were being retrieved by AI; ours weren't.</div>
+      <div><em>Site structure</em> — reviews trapped inside iframe, unreadable by any crawler.</div>
+      <div><em>Content gaps</em> — no page explicitly answered "what areas do you serve" in schema-visible text.</div>
+      <div><em>Entity graph</em> — no LocalBusiness schema anywhere on the site.</div>
+    </div>
+
+    <h2>What we shipped</h2>
+    <p><strong>Site rebuild —</strong> Moved from WordPress to a crawler-native Astro build. Server-rendered, zero client-side JavaScript for critical content. Every page an AI assistant lands on has the full text available in the initial HTML.</p>
+    <p><strong>Review restructure —</strong> Pulled reviews out of the iframe. Rebuilt them as structured Review + AggregateRating schema in JSON-LD, with the actual review text in prose so assistants could quote it.</p>
+    <p><strong>Service-area pages —</strong> One page per neighborhood in the service area, each answering the specific "cleaner in [neighborhood]" query with real category, service, and pricing data structured for retrieval.</p>
+    <p><strong>Entity graph —</strong> Full LocalBusiness schema with categories, service area, hours, and citations to industry credentials.</p>
+    <p><strong>GBP cleanup —</strong> Corrected category (had been listed under "cleaning products retailer"), added missing service tags, restructured photos with descriptive filenames, and set up a weekly response cadence for reviews.</p>
+
+    <h2>The result</h2>
+    <p>Thirty days after launch, we re-ran the twelve-query baseline scan. Client was named on eight — a jump from 0% to 67% coverage. The queries where they still weren't named all had the same characteristic: they specified a competitor by name, or asked for a service the client doesn't actually offer. In both cases, correctly excluded.</p>
+    <p>Meanwhile, phone inquiries increased and the client's Google Business Profile saw a measurable lift in direct calls attributed to "asked ChatGPT / asked AI" as the source — first time that attribution had ever appeared in their intake data.</p>
+
+    <div class="cs-note">The measurement continues. We re-scan monthly and report the delta. What worked stays; what didn't gets rewritten. This is the loop.</div>
+
+    <h2>What this proves</h2>
+    <p>The point of this case study isn't the number itself. Any agency can produce a case study with a favorable number. The point is that <strong>every ship is attributed to a specific signal</strong>. When we say "the number moved," we can tell you exactly which piece of work moved it and which piece of data said to do that work.</p>
+    <p>That's the difference between correlation-driven work and template work: when something works, we know why. When something doesn't work, we know that too, and we adjust the model for the next cycle.</p>
+  </div>
+
+  <section class="cta-block">
+    <h2 class="cta-head">Want to see it run on <em>your business?</em></h2>
+    <p class="cta-sub">A visibility check produces the same shape of data — before we ship anything, before you commit to anything.</p>
+    <a href="/scan" class="btn">Book a visibility check →</a>
+  </section>
+</Layout>
+
+<style>
+  .breadcrumb {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-bottom: 20px;
+  }
+  .breadcrumb a {
+    color: var(--dim);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .breadcrumb a:hover { color: var(--ink); }
+  .cs-metric-hero {
+    padding: clamp(40px, 8vh, 80px) 0;
+    border-top: 0.5px solid var(--rule);
+    border-bottom: 0.5px solid var(--rule);
+    margin-bottom: clamp(40px, 8vh, 80px);
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(32px, 6vw, 80px);
+    align-items: center;
+  }
+  .cs-big-metric {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(80px, 12vw, 180px);
+    line-height: 0.88;
+    letter-spacing: -0.05em;
+    color: var(--oxblood);
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+  }
+  .cs-big-metric .was { color: var(--dimmer); }
+  .cs-big-metric .arrow { color: var(--dim); font-size: 0.5em; font-weight: 500; }
+  .cs-big-cap {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-top: 20px;
+  }
+  .cs-summary {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--ink);
+    font-style: italic;
+    letter-spacing: -0.005em;
+  }
+  .cs-summary em { color: var(--oxblood); font-weight: 500; font-style: italic; }
+  @media (max-width: 900px) {
+    .cs-metric-hero { grid-template-columns: 1fr; }
+  }
+  .signal-attribution {
+    background: rgba(244,241,234,0.02);
+    border: 0.5px solid var(--rule);
+    padding: 20px 24px;
+    margin: 24px 0;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  .signal-attribution-label {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--oxblood);
+    margin-bottom: 8px;
+  }
+  .signal-attribution em { color: var(--ink); font-style: normal; font-weight: 500; }
+  .cs-note {
+    background: rgba(110,14,14,0.06);
+    border-left: 2px solid var(--oxblood);
+    padding: 14px 20px;
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 32px 0;
+  }
+</style>

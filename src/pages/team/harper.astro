@@ -1,0 +1,87 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Harper Deeter — LinksMaxing"
+  description="Founder, LinksMaxing. Runs every client engagement directly. Based in Dallas."
+>
+  <div class="page-header" style="padding-bottom:20px;">
+    <div class="page-eyebrow">Founder</div>
+  </div>
+
+  <div class="harper-hero">
+    <div class="harper-photo-frame">
+      <img src="/harper.png" alt="Harper Deeter, founder of LinksMaxing" class="harper-photo" />
+      <div class="harper-photo-caption">Rome · 2025 · photo by [—]</div>
+    </div>
+    <div>
+      <h1 class="page-title" style="margin-bottom:20px;">Harper <em>Deeter.</em></h1>
+      <p class="page-lead">Founder. Runs every client engagement directly. Based in Dallas.</p>
+    </div>
+  </div>
+
+  <section class="block">
+    <div class="sec-num">01 / bio</div>
+    <h2 class="sec-head">Practitioner, not <em>account manager.</em></h2>
+    <div class="article-body" style="border-top:none;padding-top:0;">
+      <p><em style="color:var(--dim);">[Placeholder — Harper writes his own version of this section.]</em></p>
+      <p>Harper Deeter founded LinksMaxing after realizing that no existing SEO or GEO tool actually correlated the signals a small business needs correlated. He built the scanner. He built the auditor. He built the correlation engine. And now he does the client work himself, because the tools and the practice reinforce each other.</p>
+      <p>He's a technique-obsessed operator by nature — the same way he approaches jiu-jitsu, wrestling, and (occasionally) taste in denim and rock records. Every project gets the same treatment: strip it to fundamentals, understand what the data is actually saying, and build the specific fix the evidence points to. Nothing shipped on hope.</p>
+      <p>He's based in Dallas, works with a deliberately small client roster at any given time, and travels to see clients in person when the engagement warrants it.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="sec-num">02 / how to reach him</div>
+    <h2 class="sec-head">Direct <em>only.</em></h2>
+    <div class="article-body" style="border-top:none;padding-top:0;">
+      <p>All client and prospect communication runs through <a href="mailto:harper@linksmaxing.com">harper@linksmaxing.com</a>. No intake forms, no gatekeepers, no automated funnels. If you email Harper, Harper reads it — usually within one business day.</p>
+      <p>If you'd like to book a call directly, email is still the fastest path.</p>
+    </div>
+  </section>
+
+  <section class="cta-block">
+    <h2 class="cta-head">Get in <em>touch.</em></h2>
+    <p class="cta-sub">Whether you have a project in mind, want a visibility check, or just want to talk about how AI retrieval is changing search for your industry, Harper welcomes the conversation.</p>
+    <a href="mailto:harper@linksmaxing.com?subject=Hello%20Harper" class="btn">Email Harper →</a>
+  </section>
+</Layout>
+
+<style>
+  .harper-hero {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: clamp(32px, 6vw, 80px);
+    align-items: end;
+    padding: clamp(20px, 4vh, 40px) 0 clamp(40px, 8vh, 72px);
+  }
+  .harper-photo {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    display: block;
+    filter: grayscale(1) contrast(1.05);
+    transition: filter 0.6s ease;
+  }
+  .harper-photo:hover { filter: grayscale(0.6) contrast(1.05); }
+  .harper-photo-frame {
+    position: relative;
+    display: inline-block;
+  }
+  .harper-photo-caption {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 0.5px solid var(--rule-soft);
+    max-width: 480px;
+  }
+  @media (max-width: 900px) {
+    .harper-hero { grid-template-columns: 1fr; }
+    .harper-photo { max-width: 100%; }
+  }
+</style>
