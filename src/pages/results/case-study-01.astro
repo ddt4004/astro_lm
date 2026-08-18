@@ -71,8 +71,112 @@ import Layout from '../../layouts/Layout.astro';
     <p><strong>GBP cleanup —</strong> Corrected category (had been listed under "cleaning products retailer"), added missing service tags, restructured photos with descriptive filenames, and set up a weekly response cadence for reviews.</p>
 
     <h2>The result</h2>
+
+    <div class="cs-chart">
+      <div class="cs-chart-head">
+        <div>
+          <div class="cs-chart-title">Named rate by week</div>
+          <div class="cs-chart-cap">baseline through 30 days post-launch</div>
+        </div>
+        <div class="cs-chart-metric-block">
+          <div class="cs-chart-metric">67%</div>
+          <div class="cs-chart-metric-cap">week 4</div>
+        </div>
+      </div>
+      <svg viewBox="0 0 500 220" class="cs-line-chart" aria-label="Named rate progression from 0% at baseline to 67% at week 4">
+        <line x1="50" y1="20" x2="500" y2="20" stroke="rgba(244,241,234,0.05)" stroke-dasharray="2 3"/>
+        <line x1="50" y1="60" x2="500" y2="60" stroke="rgba(244,241,234,0.05)" stroke-dasharray="2 3"/>
+        <line x1="50" y1="100" x2="500" y2="100" stroke="rgba(244,241,234,0.05)" stroke-dasharray="2 3"/>
+        <line x1="50" y1="140" x2="500" y2="140" stroke="rgba(244,241,234,0.05)" stroke-dasharray="2 3"/>
+        <line x1="50" y1="180" x2="500" y2="180" stroke="rgba(244,241,234,0.18)"/>
+        <text x="40" y="24" text-anchor="end" fill="rgba(244,241,234,0.5)" font-size="9" font-family="JetBrains Mono, monospace">100</text>
+        <text x="40" y="64" text-anchor="end" fill="rgba(244,241,234,0.5)" font-size="9" font-family="JetBrains Mono, monospace">75</text>
+        <text x="40" y="104" text-anchor="end" fill="rgba(244,241,234,0.5)" font-size="9" font-family="JetBrains Mono, monospace">50</text>
+        <text x="40" y="144" text-anchor="end" fill="rgba(244,241,234,0.5)" font-size="9" font-family="JetBrains Mono, monospace">25</text>
+        <text x="40" y="184" text-anchor="end" fill="rgba(244,241,234,0.5)" font-size="9" font-family="JetBrains Mono, monospace">0</text>
+        <path d="M50,180 L162,156 L275,124 L387,92 L500,73 L500,180 Z" fill="rgba(110,14,14,0.2)"/>
+        <path d="M50,180 L162,156 L275,124 L387,92 L500,73" stroke="#6E0E0E" stroke-width="2" fill="none"/>
+        <circle cx="50" cy="180" r="4" fill="#F4F1EA"/>
+        <circle cx="162" cy="156" r="4" fill="#F4F1EA"/>
+        <circle cx="275" cy="124" r="4" fill="#F4F1EA"/>
+        <circle cx="387" cy="92" r="4" fill="#F4F1EA"/>
+        <circle cx="500" cy="73" r="5" fill="#6E0E0E" stroke="#F4F1EA" stroke-width="2"/>
+        <text x="50" y="205" text-anchor="middle" fill="rgba(244,241,234,0.5)" font-size="9" font-family="JetBrains Mono, monospace">W0</text>
+        <text x="162" y="205" text-anchor="middle" fill="rgba(244,241,234,0.5)" font-size="9" font-family="JetBrains Mono, monospace">W1</text>
+        <text x="275" y="205" text-anchor="middle" fill="rgba(244,241,234,0.5)" font-size="9" font-family="JetBrains Mono, monospace">W2</text>
+        <text x="387" y="205" text-anchor="middle" fill="rgba(244,241,234,0.5)" font-size="9" font-family="JetBrains Mono, monospace">W3</text>
+        <text x="500" y="205" text-anchor="middle" fill="rgba(244,241,234,0.5)" font-size="9" font-family="JetBrains Mono, monospace">W4</text>
+      </svg>
+    </div>
+
     <p>Thirty days after launch, we re-ran the twelve-query baseline scan. Client was named on eight — a jump from 0% to 67% coverage. The queries where they still weren't named all had the same characteristic: they specified a competitor by name, or asked for a service the client doesn't actually offer. In both cases, correctly excluded.</p>
     <p>Meanwhile, phone inquiries increased and the client's Google Business Profile saw a measurable lift in direct calls attributed to "asked ChatGPT / asked AI" as the source — first time that attribution had ever appeared in their intake data.</p>
+
+    <div class="cs-delta">
+      <div class="cs-delta-head">Signal delta · 30 days</div>
+      <div class="cs-delta-table">
+        <div class="cs-delta-row cs-delta-labels">
+          <div>signal</div>
+          <div>before</div>
+          <div>after</div>
+          <div>change</div>
+        </div>
+        <div class="cs-delta-row">
+          <div class="cs-delta-signal">AI recommendations</div>
+          <div class="cs-delta-num">0/12</div>
+          <div class="cs-delta-num">8/12</div>
+          <div class="cs-delta-change">+8 named</div>
+        </div>
+        <div class="cs-delta-row">
+          <div class="cs-delta-signal">Source retrieval</div>
+          <div class="cs-delta-num">3 pages</div>
+          <div class="cs-delta-num">18 pages</div>
+          <div class="cs-delta-change">6× reach</div>
+        </div>
+        <div class="cs-delta-row">
+          <div class="cs-delta-signal">Competitor entities</div>
+          <div class="cs-delta-num">7 gaps</div>
+          <div class="cs-delta-num">1 gap</div>
+          <div class="cs-delta-change">6 closed</div>
+        </div>
+        <div class="cs-delta-row">
+          <div class="cs-delta-signal">Search Console</div>
+          <div class="cs-delta-num">124/day</div>
+          <div class="cs-delta-num">340/day</div>
+          <div class="cs-delta-change">2.7×</div>
+        </div>
+        <div class="cs-delta-row">
+          <div class="cs-delta-signal">Technical SEO</div>
+          <div class="cs-delta-num">62/100</div>
+          <div class="cs-delta-num">94/100</div>
+          <div class="cs-delta-change">+32 pts</div>
+        </div>
+        <div class="cs-delta-row">
+          <div class="cs-delta-signal">Content gaps</div>
+          <div class="cs-delta-num">18 gaps</div>
+          <div class="cs-delta-num">4 gaps</div>
+          <div class="cs-delta-change">14 filled</div>
+        </div>
+        <div class="cs-delta-row">
+          <div class="cs-delta-signal">Site structure</div>
+          <div class="cs-delta-num">45/100</div>
+          <div class="cs-delta-num">98/100</div>
+          <div class="cs-delta-change">+53 pts</div>
+        </div>
+        <div class="cs-delta-row">
+          <div class="cs-delta-signal">Google Business Profile</div>
+          <div class="cs-delta-num">wrong cat</div>
+          <div class="cs-delta-num">verified</div>
+          <div class="cs-delta-change">fixed</div>
+        </div>
+        <div class="cs-delta-row">
+          <div class="cs-delta-signal">Reviews</div>
+          <div class="cs-delta-num">iframe</div>
+          <div class="cs-delta-num">schema</div>
+          <div class="cs-delta-change">readable</div>
+        </div>
+      </div>
+    </div>
 
     <div class="cs-note">The measurement continues. We re-scan monthly and report the delta. What worked stays; what didn't gets rewritten. This is the loop.</div>
 
@@ -172,5 +276,123 @@ import Layout from '../../layouts/Layout.astro';
     color: var(--muted);
     font-style: italic;
     margin: 32px 0;
+  }
+
+  /* CHART: line chart with header */
+  .cs-chart {
+    margin: 32px 0 40px;
+    padding: 24px 24px 20px;
+    border: 0.5px solid var(--rule);
+    background: rgba(244,241,234,0.015);
+  }
+  .cs-chart-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 16px;
+    margin-bottom: 8px;
+    border-bottom: 0.5px solid var(--rule-soft);
+  }
+  .cs-chart-title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 22px;
+    color: var(--ink);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+  }
+  .cs-chart-cap {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--dim);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+  .cs-chart-metric-block { text-align: right; }
+  .cs-chart-metric {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 44px;
+    color: var(--oxblood);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .cs-chart-metric-cap {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--dim);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-top: 4px;
+  }
+  .cs-line-chart {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* DELTA: signal-by-signal delta table */
+  .cs-delta {
+    margin: 32px 0;
+    padding: 20px 24px;
+    border: 0.5px solid var(--rule);
+    background: rgba(244,241,234,0.015);
+  }
+  .cs-delta-head {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--oxblood);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 0.5px solid var(--rule-soft);
+    font-weight: 500;
+  }
+  .cs-delta-table {
+    font-family: var(--font-mono);
+    font-size: 12px;
+  }
+  .cs-delta-row {
+    display: grid;
+    grid-template-columns: 1.5fr 70px 70px 90px;
+    gap: 12px;
+    padding: 9px 0;
+    border-bottom: 0.5px dashed var(--rule-soft);
+    align-items: center;
+  }
+  .cs-delta-row:last-child { border-bottom: none; }
+  .cs-delta-labels {
+    font-size: 9px;
+    color: var(--dim);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    padding-bottom: 10px;
+  }
+  .cs-delta-labels > div:nth-child(2),
+  .cs-delta-labels > div:nth-child(3) { text-align: right; }
+  .cs-delta-labels > div:nth-child(4) { text-align: center; }
+  .cs-delta-signal { color: var(--ink); }
+  .cs-delta-num { color: var(--muted); text-align: right; }
+  .cs-delta-change {
+    color: var(--ink);
+    background: rgba(110,14,14,0.5);
+    padding: 3px 8px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 11px;
+  }
+  @media (max-width: 600px) {
+    .cs-chart-head { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .cs-chart-metric-block { text-align: left; }
+    .cs-delta-row {
+      grid-template-columns: 1fr 55px 55px 75px;
+      gap: 8px;
+      font-size: 11px;
+    }
+    .cs-delta-signal { font-size: 11px; }
+    .cs-delta-num { font-size: 10px; }
+    .cs-delta-change { font-size: 10px; padding: 2px 6px; }
   }
 </style>
