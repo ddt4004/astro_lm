@@ -96,60 +96,69 @@ import Layout from '../layouts/Layout.astro';
       <div class="sec-num">01 / signals</div>
       <h2 class="sec-head">Nine signals. <em>One correlated view.</em></h2>
       <p class="sec-beat">Everyone else watches one signal. Maybe two. <em>Nine is where correlation lives.</em></p>
-      <div class="signals-grid">
-        <div class="signal">
-          <div class="signal-num">01</div>
-          <div class="signal-name">AI recommendations</div>
-          <div class="signal-desc">Every query your customer might ask, run against ChatGPT, Claude, and Google AI Overviews. Who names you. Who names competitors. Who names nobody.</div>
-          <span class="signal-tool">Proprietary scanner</span>
+      <div class="signals-groups">
+        <div class="signal-group">
+          <div class="signal-surface">Assistants</div>
+          <div class="signal">
+            <div class="signal-num">01</div>
+            <div class="signal-name">AI recommendations</div>
+            <div class="signal-desc">Every query your customer might ask, run against ChatGPT, Claude, and Google AI Overviews. Who names you. Who names competitors. Who names nobody.</div>
+            <span class="signal-tool">Proprietary scanner</span>
+          </div>
+          <div class="signal">
+            <div class="signal-num">02</div>
+            <div class="signal-name">Source retrieval</div>
+            <div class="signal-desc">Which pages each assistant actually reads to build its answer. The source graph nobody else maps.</div>
+            <span class="signal-tool">Scan analysis</span>
+          </div>
+          <div class="signal">
+            <div class="signal-num">03</div>
+            <div class="signal-name">Competitor entities</div>
+            <div class="signal-desc">Which categories, licenses, credentials, and citations your competitors claim that you don't.</div>
+            <span class="signal-tool">Entity audit</span>
+          </div>
         </div>
-        <div class="signal">
-          <div class="signal-num">02</div>
-          <div class="signal-name">Search Console</div>
-          <div class="signal-desc">What queries actually drive impressions today. What ranks. What clicks. The gap between what customers ask and what your site answers.</div>
-          <span class="signal-tool">GSC API</span>
+        <div class="signal-group">
+          <div class="signal-surface">Search</div>
+          <div class="signal">
+            <div class="signal-num">04</div>
+            <div class="signal-name">Search Console</div>
+            <div class="signal-desc">What queries actually drive impressions today. What ranks. What clicks. The gap between what customers ask and what your site answers.</div>
+            <span class="signal-tool">GSC API</span>
+          </div>
+          <div class="signal">
+            <div class="signal-num">05</div>
+            <div class="signal-name">Content gaps</div>
+            <div class="signal-desc">Questions your customers ask that your site doesn't yet answer. The prescriptive side of GSC.</div>
+            <span class="signal-tool">Content audit</span>
+          </div>
+          <div class="signal">
+            <div class="signal-num">06</div>
+            <div class="signal-name">Technical SEO</div>
+            <div class="signal-desc">Core Web Vitals, JavaScript rendering, sitemap health, canonical hygiene, robots access per crawler.</div>
+            <span class="signal-tool">Site audit</span>
+          </div>
         </div>
-        <div class="signal">
-          <div class="signal-num">03</div>
-          <div class="signal-name">Source retrieval</div>
-          <div class="signal-desc">Which pages each assistant actually reads to build its answer. The source graph nobody else maps.</div>
-          <span class="signal-tool">Scan analysis</span>
-        </div>
-        <div class="signal">
-          <div class="signal-num">04</div>
-          <div class="signal-name">Site structure</div>
-          <div class="signal-desc">Whether crawlers can even reach what you publish. Schema validity. NAP consistency. Heading hierarchy.</div>
-          <span class="signal-tool">Structural audit</span>
-        </div>
-        <div class="signal">
-          <div class="signal-num">05</div>
-          <div class="signal-name">Competitor entities</div>
-          <div class="signal-desc">Which categories, licenses, credentials, and citations your competitors claim that you don't.</div>
-          <span class="signal-tool">Entity audit</span>
-        </div>
-        <div class="signal">
-          <div class="signal-num">06</div>
-          <div class="signal-name">Google Business Profile</div>
-          <div class="signal-desc">Categories, photos, review response, posts, hours accuracy. The signals Google feeds back to itself.</div>
-          <span class="signal-tool">GBP data</span>
-        </div>
-        <div class="signal">
-          <div class="signal-num">07</div>
-          <div class="signal-name">Reviews</div>
-          <div class="signal-desc">Sentiment, volume, response cadence, and — critically — what phrases customers use that AI can re-quote.</div>
-          <span class="signal-tool">Review analysis</span>
-        </div>
-        <div class="signal">
-          <div class="signal-num">08</div>
-          <div class="signal-name">Content gaps</div>
-          <div class="signal-desc">Questions your customers ask that your site doesn't yet answer. The prescriptive side of GSC.</div>
-          <span class="signal-tool">Content audit</span>
-        </div>
-        <div class="signal">
-          <div class="signal-num">09</div>
-          <div class="signal-name">Technical SEO</div>
-          <div class="signal-desc">Core Web Vitals, JavaScript rendering, sitemap health, canonical hygiene, robots access per crawler.</div>
-          <span class="signal-tool">Site audit</span>
+        <div class="signal-group">
+          <div class="signal-surface">Ground truth</div>
+          <div class="signal">
+            <div class="signal-num">07</div>
+            <div class="signal-name">Site structure</div>
+            <div class="signal-desc">Whether crawlers can even reach what you publish. Schema validity. NAP consistency. Heading hierarchy.</div>
+            <span class="signal-tool">Structural audit</span>
+          </div>
+          <div class="signal">
+            <div class="signal-num">08</div>
+            <div class="signal-name">Google Business Profile</div>
+            <div class="signal-desc">Categories, photos, review response, posts, hours accuracy. The signals Google feeds back to itself.</div>
+            <span class="signal-tool">GBP data</span>
+          </div>
+          <div class="signal">
+            <div class="signal-num">09</div>
+            <div class="signal-name">Reviews</div>
+            <div class="signal-desc">Sentiment, volume, response cadence, and — critically — what phrases customers use that AI can re-quote.</div>
+            <span class="signal-tool">Review analysis</span>
+          </div>
         </div>
       </div>
     </section>
@@ -338,8 +347,8 @@ import Layout from '../layouts/Layout.astro';
       }
     });
   },{threshold:0.1});
-  var grid=document.querySelector('.signals-grid');
-  if(grid)signalObs.observe(grid);
+  var grid=document.querySelectorAll('.signal-group');
+  if(grid.length)grid.forEach(function(g){signalObs.observe(g);});
 
   // 3. Metric count-up 0 → data-count value, ease-out-cubic over 1.2s
   var metricObs=new IntersectionObserver(function(entries){
