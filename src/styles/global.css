@@ -135,6 +135,42 @@ nav.top {
   transition: opacity 0.2s;
 }
 .op-cta:hover { opacity: 0.7; }
+
+/* Op left column — three surfaces */
+.op-left {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 3vh, 32px);
+}
+.op-surfaces {
+  display: flex;
+  flex-direction: column;
+  border-top: 0.5px solid var(--rule);
+  border-bottom: 0.5px solid var(--rule);
+}
+.op-surface {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 0.5px dashed var(--rule-soft);
+}
+.op-surface:last-child { border-bottom: none; }
+.op-surface-name {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  min-width: 130px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+.op-surface-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.55;
+}
 /* SCAN CARD — Level 2 live monitoring surface */
 .scan {
   font-family: 'JetBrains Mono', monospace;
