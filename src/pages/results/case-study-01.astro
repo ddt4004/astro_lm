@@ -251,8 +251,14 @@ import Layout from '../../layouts/Layout.astro';
     .cs-metric-hero { grid-template-columns: 1fr; }
   }
   .signal-attribution {
-    background: rgba(244,241,234,0.02);
-    border: 0.5px solid var(--rule);
+    --bg: #151412;
+    --ink: #F4F1EA;
+    --muted: rgba(244,241,234,0.72);
+    --dim: rgba(244,241,234,0.5);
+    --rule: rgba(244,241,234,0.18);
+    --rule-soft: rgba(244,241,234,0.12);
+    background: var(--bg);
+    border: 0.5px solid rgba(21,20,18,0.18);
     padding: 20px 24px;
     margin: 24px 0;
     font-family: var(--font-mono);
@@ -280,10 +286,17 @@ import Layout from '../../layouts/Layout.astro';
 
   /* CHART: line chart with header */
   .cs-chart {
+    --bg: #151412;
+    --ink: #F4F1EA;
+    --muted: rgba(244,241,234,0.72);
+    --dim: rgba(244,241,234,0.5);
+    --rule: rgba(244,241,234,0.18);
+    --rule-soft: rgba(244,241,234,0.12);
     margin: 32px 0 40px;
     padding: 24px 24px 20px;
-    border: 0.5px solid var(--rule);
-    background: rgba(244,241,234,0.015);
+    border: 0.5px solid rgba(21,20,18,0.18);
+    background: var(--bg);
+    color: var(--ink);
   }
   .cs-chart-head {
     display: flex;
@@ -334,10 +347,17 @@ import Layout from '../../layouts/Layout.astro';
 
   /* DELTA: signal-by-signal delta table */
   .cs-delta {
+    --bg: #151412;
+    --ink: #F4F1EA;
+    --muted: rgba(244,241,234,0.72);
+    --dim: rgba(244,241,234,0.5);
+    --rule: rgba(244,241,234,0.18);
+    --rule-soft: rgba(244,241,234,0.12);
     margin: 32px 0;
     padding: 20px 24px;
-    border: 0.5px solid var(--rule);
-    background: rgba(244,241,234,0.015);
+    border: 0.5px solid rgba(21,20,18,0.18);
+    background: var(--bg);
+    color: var(--ink);
   }
   .cs-delta-head {
     font-family: var(--font-mono);

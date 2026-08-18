@@ -1,13 +1,13 @@
 :root {
-  --bg: #151412;
-  --ink: #F4F1EA;
+  --bg: #F4F1EA;
+  --ink: #151412;
   --oxblood: #6E0E0E;
   --oxblood-hover: #8B1616;
-  --muted: rgba(244,241,234,0.72);
-  --dim: rgba(244,241,234,0.5);
-  --dimmer: rgba(244,241,234,0.35);
-  --rule: rgba(244,241,234,0.18);
-  --rule-soft: rgba(244,241,234,0.12);
+  --muted: rgba(21,20,18,0.72);
+  --dim: rgba(21,20,18,0.5);
+  --dimmer: rgba(21,20,18,0.35);
+  --rule: rgba(21,20,18,0.18);
+  --rule-soft: rgba(21,20,18,0.12);
   --font-display: 'Saira Condensed', 'Inter', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -173,10 +173,19 @@ nav.top {
 }
 /* SCAN CARD — Level 2 live monitoring surface */
 .scan {
+  /* Dark inset — terminal aesthetic preserved regardless of page theme */
+  --bg: #151412;
+  --ink: #F4F1EA;
+  --muted: rgba(244,241,234,0.72);
+  --dim: rgba(244,241,234,0.5);
+  --dimmer: rgba(244,241,234,0.35);
+  --rule: rgba(244,241,234,0.18);
+  --rule-soft: rgba(244,241,234,0.12);
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
-  border: 0.5px solid var(--rule);
-  background: rgba(244,241,234,0.015);
+  border: 0.5px solid rgba(21,20,18,0.18);
+  background: var(--bg);
+  color: var(--ink);
 }
 .scan-head {
   padding: 10px 14px;
@@ -655,7 +664,7 @@ section.block {
 .final-btn {
   display: inline-block;
   background: var(--oxblood);
-  color: var(--ink);
+  color: #F4F1EA;
   padding: 18px 34px;
   font-size: 13px;
   font-weight: 500;
@@ -957,7 +966,7 @@ html.motion .typing-target.typed .ch { visibility: visible; }
 .btn {
   display: inline-block;
   background: var(--oxblood);
-  color: var(--ink);
+  color: #F4F1EA;
   padding: 15px 30px;
   font-size: 12px;
   font-weight: 500;
@@ -975,7 +984,7 @@ html.motion .typing-target.typed .ch { visibility: visible; }
   border: 1px solid var(--ink);
   color: var(--ink);
 }
-.btn-ghost:hover { background: rgba(244,241,234,0.08); }
+.btn-ghost:hover { background: rgba(21,20,18,0.08); }
 .link-underline {
   color: var(--ink);
   border-bottom: 1px solid var(--ink);
