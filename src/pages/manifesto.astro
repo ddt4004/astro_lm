@@ -1,0 +1,832 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The LinksMaxing Manifesto · Dallas · 2026</title>
+<meta name="description" content="Real decisions come from real data. Real work produces real outcomes. The revolution starts now. The LinksMaxing Manifesto, filed in Dallas, 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&family=Saira+Condensed:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ==== TOKENS ==== */
+:root {
+  --bone: #F4F1EA;
+  --ink:  #151412;
+  --ox:   #6E0E0E;
+  --ox-hover: #8B1616;
+  --ink-dim:    rgba(21, 20, 18, 0.72);
+  --ink-dimmer: rgba(21, 20, 18, 0.5);
+  --ink-rule:   rgba(21, 20, 18, 0.22);
+  --ink-soft:   rgba(21, 20, 18, 0.14);
+  --bone-dim:    rgba(244, 241, 234, 0.72);
+  --bone-dimmer: rgba(244, 241, 234, 0.5);
+  --bone-rule:   rgba(244, 241, 234, 0.22);
+  --bone-soft:   rgba(244, 241, 234, 0.14);
+  --font-d: 'Saira Condensed', Impact, sans-serif;
+  --font-b: 'Inter', system-ui, sans-serif;
+  --font-m: 'JetBrains Mono', ui-monospace, monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  background: var(--bone);
+  color: var(--ink);
+  font-family: var(--font-b);
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--ox); color: var(--bone); }
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 64px); }
+.section-dark { background: var(--ink); color: var(--bone); }
+.section-ox { background: var(--ox); color: var(--bone); }
+
+/* ==== TOP NAV ==== */
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 20px 0 16px;
+  border-bottom: 0.5px solid var(--ink-soft);
+  gap: 24px;
+}
+.nav-brand { display: inline-flex; align-items: baseline; gap: 10px; }
+.nav-brand .logo { font-weight: 500; font-size: 15px; letter-spacing: -0.005em; line-height: 1; }
+.nav-brand .logo-sub {
+  font-family: var(--font-m);
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-dimmer);
+  line-height: 1;
+}
+.nav-links { display: flex; gap: clamp(18px, 2.2vw, 28px); align-items: baseline; }
+.nav-links a {
+  font-family: var(--font-m);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-links a.active { color: var(--ox); }
+.nav-cta {
+  font-family: var(--font-m);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ox);
+  border-bottom: 1px solid var(--ox);
+  padding-bottom: 3px;
+  white-space: nowrap;
+}
+
+/* ==== STICKY NAV ==== */
+.nav-sticky {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(244, 241, 234, 0.94);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 0.5px solid var(--ink-rule);
+  transform: translateY(-105%);
+  transition: transform 380ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  pointer-events: none;
+}
+.nav-sticky.visible { transform: translateY(0); pointer-events: auto; }
+.nav-sticky-inner {
+  max-width: 1280px; margin: 0 auto;
+  padding: 12px clamp(20px, 4vw, 64px);
+  display: flex; justify-content: space-between; align-items: center; gap: 24px;
+}
+.nav-sticky-brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 500; font-size: 14px; color: var(--ink); white-space: nowrap; }
+.nav-sticky-mark { display: block; width: 26px; height: 26px; color: var(--ink); }
+.nav-sticky-links { display: flex; gap: clamp(16px, 2vw, 26px); }
+.nav-sticky-links a {
+  font-family: var(--font-m);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.nav-sticky-links a.active { color: var(--ox); }
+.nav-sticky-cta {
+  font-family: var(--font-m);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ox);
+  border-bottom: 1px solid var(--ox);
+  padding-bottom: 3px;
+}
+
+/* ==== PAGE HEADER — masthead treatment ==== */
+.doc-head {
+  padding: clamp(40px, 6vh, 72px) 0 clamp(56px, 9vh, 96px);
+  border-bottom: 3px solid var(--ink);
+}
+.doc-masthead-rail {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 20px;
+  font-family: var(--font-m);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  padding-bottom: 14px;
+  border-bottom: 0.5px solid var(--ink-rule);
+  margin-bottom: 22px;
+}
+.doc-masthead-rail .ox { color: var(--ox); }
+.doc-title {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(60px, 11vw, 200px);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 8px 0 22px;
+}
+.doc-dek {
+  font-family: var(--font-b);
+  font-size: clamp(17px, 1.4vw, 22px);
+  line-height: 1.55;
+  color: var(--ink-dim);
+  max-width: 780px;
+}
+
+/* ==== PREAMBLE ==== */
+.preamble {
+  padding: clamp(60px, 9vh, 100px) 0 clamp(40px, 6vh, 72px);
+  border-bottom: 0.5px solid var(--ink-rule);
+}
+.preamble-label {
+  font-family: var(--font-m);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ox);
+  margin-bottom: 22px;
+}
+.preamble-body {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--ink-dim);
+  max-width: 860px;
+}
+.preamble-body p + p { margin-top: 20px; }
+.preamble-body em { color: var(--ox); font-style: normal; font-weight: 500; }
+
+/* ==== MANIFESTO BODY — the document itself ==== */
+.doc-body {
+  padding: clamp(72px, 12vh, 140px) 0;
+}
+.doc-body-label {
+  font-family: var(--font-m);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ox);
+  margin-bottom: clamp(36px, 5vh, 56px);
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--ink);
+}
+.doc-body-copy {
+  font-family: var(--font-d);
+  font-weight: 700;
+  font-size: clamp(26px, 2.8vw, 46px);
+  line-height: 1.14;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  max-width: 1080px;
+  text-wrap: pretty;
+}
+.doc-body-copy p + p { margin-top: clamp(28px, 4vh, 48px); }
+.doc-body-copy .real { font-weight: 900; color: var(--ox); }
+
+/* ==== PRINCIPLES ==== */
+.principles {
+  padding: clamp(72px, 12vh, 140px) 0;
+  border-top: 3px solid var(--ink);
+}
+.principles-label {
+  font-family: var(--font-m);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ox);
+  margin-bottom: 26px;
+}
+.principles-h {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(44px, 7vw, 110px);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin-bottom: clamp(48px, 7vh, 80px);
+  max-width: 900px;
+}
+.principles-h .ox { color: var(--ox); }
+.principles-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0;
+}
+.principles-list li {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: clamp(20px, 3vw, 40px);
+  padding: 30px 0;
+  border-top: 0.5px solid var(--ink-soft);
+  align-items: baseline;
+}
+.principles-list li:first-child { border-top: 1px solid var(--ink); }
+.principles-list li:last-child { border-bottom: 1px solid var(--ink); }
+.principle-num {
+  font-family: var(--font-m);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: var(--ox);
+  padding-top: 4px;
+}
+.principle-h {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(22px, 2.6vw, 34px);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  margin-bottom: 12px;
+}
+.principle-body {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--ink-dim);
+  max-width: 700px;
+}
+
+/* ==== THE DECLARATION — oxblood ground ==== */
+.declaration {
+  padding: clamp(120px, 20vh, 220px) 0;
+}
+.declaration-label {
+  font-family: var(--font-m);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--bone-dim);
+  margin-bottom: clamp(44px, 6vh, 72px);
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--bone-rule);
+}
+.declaration-close {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(64px, 12vw, 220px);
+  line-height: 0.88;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-wrap: balance;
+  margin-bottom: clamp(48px, 7vh, 88px);
+}
+
+/* ==== SIGNATURE ==== */
+.signature {
+  padding-top: clamp(32px, 4vh, 48px);
+  border-top: 0.5px solid var(--bone-rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.signature-block { display: flex; flex-direction: column; gap: 4px; }
+.signature-label {
+  font-family: var(--font-m);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--bone-dim);
+}
+.signature-value {
+  font-family: var(--font-b);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--bone);
+}
+.signature-value.doc-name {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+/* ==== PAGE CLOSE ==== */
+.page-close {
+  padding: clamp(80px, 12vh, 140px) 0 clamp(48px, 8vh, 96px);
+  border-top: 3px solid var(--ink);
+}
+.close-h {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(44px, 8vw, 110px);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  text-wrap: balance;
+}
+.close-h .ox { color: var(--ox); }
+.close-body {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-dim);
+  max-width: 640px;
+  margin-bottom: 36px;
+}
+.cta-button {
+  display: inline-block;
+  background: var(--ox);
+  color: var(--bone);
+  font-family: var(--font-m);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 20px 36px;
+  transition: background 0.2s;
+}
+.cta-button:hover { background: var(--ox-hover); }
+.close-alt { margin-top: 26px; font-size: 14px; color: var(--ink-dim); }
+.close-alt a { color: var(--ink); border-bottom: 1px solid var(--ink-rule); padding-bottom: 1px; }
+
+/* ==== FOOTER ==== */
+.footer {
+  padding: clamp(60px, 8vh, 100px) 0 clamp(36px, 5vh, 60px);
+  background: var(--ink);
+  color: var(--bone);
+}
+.footer-mark { width: 32px; height: 32px; color: var(--bone); margin-bottom: 18px; }
+.footer-signature {
+  font-family: var(--font-m);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--bone-dim);
+  margin-bottom: clamp(48px, 6vh, 72px);
+  padding-bottom: 28px;
+  border-bottom: 0.5px solid var(--bone-rule);
+}
+.footer-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  gap: clamp(28px, 4vw, 64px);
+  margin-bottom: 40px;
+}
+.footer-col-head {
+  font-family: var(--font-m);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--bone-dim);
+  margin-bottom: 14px;
+}
+.footer-col a, .footer-col span, .footer-col p {
+  display: block;
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: var(--bone-dim);
+}
+.footer-col a:hover { color: var(--bone); }
+.footer-col-colophon p { font-size: 12.5px; line-height: 1.75; color: var(--bone-dimmer); max-width: 380px; }
+.footer-col-colophon p em { color: var(--ox); font-style: normal; }
+.footer-copy {
+  padding-top: 22px;
+  border-top: 0.5px solid var(--bone-soft);
+  font-family: var(--font-m);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--bone-dimmer);
+}
+
+/* ==== MOBILE ==== */
+@media (max-width: 900px) {
+  .footer-cols { grid-template-columns: 1fr 1fr; }
+  .footer-col-colophon { grid-column: 1 / -1; }
+}
+
+@media (max-width: 720px) {
+  html, body { -webkit-text-size-adjust: 100%; }
+  .container { padding: 0 20px; }
+
+  .nav-top { padding: 14px 0 12px; align-items: center; gap: 14px; }
+  .nav-top .nav-links { display: none; }
+  .nav-brand .logo { font-size: 14px; }
+  .nav-brand .logo-sub { font-size: 8.5px; letter-spacing: 0.22em; }
+  .nav-cta { font-size: 10px; letter-spacing: 0.14em; }
+  .nav-sticky-inner { padding: 10px 20px; gap: 14px; }
+  .nav-sticky-brand { font-size: 13px; gap: 8px; }
+  .nav-sticky-mark { width: 22px; height: 22px; }
+  .nav-sticky-links { display: none; }
+  .nav-sticky-cta { font-size: 10px; letter-spacing: 0.14em; }
+
+  .doc-head { padding: 32px 0 44px; }
+  .doc-masthead-rail {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 9.5px;
+    letter-spacing: 0.2em;
+  }
+  .doc-title { font-size: clamp(52px, 15vw, 108px); margin: 4px 0 18px; }
+  .doc-dek { font-size: 15.5px; }
+
+  .preamble { padding: 44px 0 32px; }
+  .preamble-label { font-size: 10.5px; margin-bottom: 18px; }
+  .preamble-body { font-size: 15.5px; line-height: 1.65; }
+
+  .doc-body { padding: 52px 0; }
+  .doc-body-label { font-size: 11px; letter-spacing: 0.24em; margin-bottom: 32px; padding-bottom: 14px; }
+  .doc-body-copy { font-size: clamp(22px, 6.2vw, 34px); line-height: 1.18; }
+  .doc-body-copy p + p { margin-top: 24px; }
+
+  .principles { padding: 52px 0; }
+  .principles-h { font-size: clamp(38px, 11vw, 76px); margin-bottom: 40px; }
+  .principles-list li { grid-template-columns: 42px 1fr; gap: 14px; padding: 22px 0; }
+  .principle-num { font-size: 11px; }
+  .principle-h { font-size: 19px; margin-bottom: 10px; }
+  .principle-body { font-size: 14.5px; line-height: 1.55; }
+
+  .declaration { padding: 80px 0 88px; }
+  .declaration-label { font-size: 10.5px; margin-bottom: 30px; padding-bottom: 14px; }
+  .declaration-close { font-size: clamp(46px, 13vw, 96px); margin-bottom: 40px; }
+  .signature {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding-top: 24px;
+  }
+  .signature-label { font-size: 9.5px; }
+  .signature-value.doc-name { font-size: 18px; }
+
+  .page-close { padding: 56px 0 40px; }
+  .close-h { font-size: clamp(36px, 11vw, 72px); margin-bottom: 22px; }
+  .close-body { font-size: 15.5px; margin-bottom: 28px; }
+  .cta-button { padding: 16px 28px; font-size: 12px; letter-spacing: 0.16em; }
+
+  .footer { padding: 52px 0 40px; }
+  .footer-signature { font-size: 10px; margin-bottom: 40px; padding-bottom: 22px; }
+  .footer-cols { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .footer-col-colophon { grid-column: 1 / -1; }
+  .footer-col-head { font-size: 9.5px; margin-bottom: 10px; }
+  .footer-col a, .footer-col span { font-size: 12.5px; }
+  .footer-copy { font-size: 9.5px; padding-top: 18px; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  .doc-title { font-size: clamp(44px, 16vw, 88px); }
+  .doc-body-copy { font-size: clamp(20px, 6.5vw, 30px); }
+  .declaration-close { font-size: clamp(40px, 14vw, 78px); }
+  .footer-cols { grid-template-columns: 1fr; gap: 24px; }
+}
+a, button, [role="button"], .cta, .cta-primary, .cta-ghost, .nav-link, [href], [onclick] { cursor: pointer; }
+</style>
+<link rel="canonical" href="https://linksmaxing.com/manifesto/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="LinksMaxing">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://linksmaxing.com/manifesto/">
+<meta property="og:title" content="The LinksMaxing Manifesto · Dallas · 2026">
+<meta property="og:description" content="Real decisions come from real data. Real work produces real outcomes. The revolution starts now. The LinksMaxing Manifesto, filed in Dallas, 2026.">
+<meta property="og:image" content="https://linksmaxing.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="LinksMaxing">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-09-24T00:00:00Z">
+<meta property="article:author" content="LinksMaxing">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://linksmaxing.com/manifesto/">
+<meta name="twitter:title" content="The LinksMaxing Manifesto · Dallas · 2026">
+<meta name="twitter:description" content="Real decisions come from real data. Real work produces real outcomes. The revolution starts now. The LinksMaxing Manifesto, filed in Dallas, 2026.">
+<meta name="twitter:image" content="https://linksmaxing.com/og-image.png">
+
+<!-- Favicon + touch icons -->
+<link rel="icon" type="image/png" href="/linksmaxing-logo.png">
+<link rel="apple-touch-icon" href="/linksmaxing-logo.png">
+
+<!-- Schema.org (JSON-LD) -->
+<script type="application/ld+json" is:inline>
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://linksmaxing.com/#organization",
+    "name": "LinksMaxing",
+    "alternateName": "LinksMaxing Dallas",
+    "url": "https://linksmaxing.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://linksmaxing.com/linksmaxing-logo.png",
+      "width": 512,
+      "height": 512
+    },
+    "description": "AI visibility measurement. Three sources cross-referenced. Real data, real decisions.",
+    "foundingDate": "2026",
+    "founder": {
+      "@type": "Person",
+      "name": "Harper Thompson"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dallas",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "harper@linksmaxing.com",
+      "contactType": "sales",
+      "areaServed": "US",
+      "availableLanguage": "en"
+    },
+    "sameAs": [],
+    "knowsAbout": [
+      "AI Visibility Measurement",
+      "Search Engine Optimization",
+      "ChatGPT Named Business Recommendations",
+      "Claude AI Optimization",
+      "Google AI Overviews",
+      "Structured Data",
+      "Schema.org",
+      "Local Search Optimization"
+    ],
+    "slogan": "AI visibility, measured."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://linksmaxing.com/manifesto/",
+    "name": "The LinksMaxing Manifesto \u00b7 Dallas \u00b7 2026",
+    "description": "Real decisions come from real data. Real work produces real outcomes. The revolution starts now. The LinksMaxing Manifesto, filed in Dallas, 2026.",
+    "inLanguage": "en-US",
+    "isPartOf": {
+      "@id": "https://linksmaxing.com/#website"
+    },
+    "about": {
+      "@id": "https://linksmaxing.com/#organization"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The LinksMaxing Manifesto \u00b7 Dallas \u00b7 2026",
+    "description": "Real decisions come from real data. Real work produces real outcomes. The revolution starts now. The LinksMaxing Manifesto, filed in Dallas, 2026.",
+    "author": {
+      "@id": "https://linksmaxing.com/#organization"
+    },
+    "publisher": {
+      "@id": "https://linksmaxing.com/#organization"
+    },
+    "datePublished": "2026-09-24T00:00:00Z",
+    "dateModified": "2026-09-24T00:00:00Z",
+    "mainEntityOfPage": "https://linksmaxing.com/manifesto/",
+    "image": "https://linksmaxing.com/og-image.png"
+  }
+]
+</script>
+</head>
+<body>
+
+<!-- STICKY NAV -->
+<nav class="nav-sticky" aria-hidden="true">
+  <div class="nav-sticky-inner">
+    <a href="/" class="nav-sticky-brand">
+      <svg class="nav-sticky-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M8 15 h30 v13 h-17 v44 h17 v13 h-30 z" fill="currentColor"/>
+        <path d="M92 15 h-30 v13 h17 v44 h-17 v13 h30 z" fill="currentColor"/>
+        <rect x="42" y="27" width="16" height="46" fill="#6E0E0E"/>
+      </svg>
+      <span>linksmaxing</span>
+    </a>
+    <div class="nav-sticky-links">
+      <a href="/index">The Index</a>
+      <a href="/method">Method</a>
+      <a href="/proof">Proof</a>
+      <a href="/manifesto" class="active">Manifesto</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <a href="mailto:harper@linksmaxing.com" class="nav-sticky-cta">Request scan →</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- TOP NAV -->
+  <nav class="nav-top">
+    <a href="/" class="nav-brand">
+      <span class="logo">linksmaxing</span>
+      <span class="logo-sub">dallas · tx</span>
+    </a>
+    <div class="nav-links">
+      <a href="/index">The Index</a>
+      <a href="/method">Method</a>
+      <a href="/proof">Proof</a>
+      <a href="/manifesto" class="active">Manifesto</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <a href="mailto:harper@linksmaxing.com" class="nav-cta">Request scan →</a>
+  </nav>
+
+  <main>
+
+    <!-- MASTHEAD -->
+    <header class="doc-head">
+      <div class="doc-masthead-rail">
+        <div>Filed 09.24.26 · Dallas · TX</div>
+        <div class="ox">No advertising accepted</div>
+      </div>
+      <h1 class="doc-title">The Manifesto</h1>
+      <p class="doc-dek">This is the document. Read it, sign on, or don't. It stays where it is either way. If you find yourself nodding at the same lines we do, we should talk.</p>
+    </header>
+
+    <!-- PREAMBLE -->
+    <section class="preamble">
+      <div class="preamble-label">Preamble</div>
+      <div class="preamble-body">
+        <p>The SEO industry sells reports on rankings that no longer decide the purchase. AI assistants decide who gets named now, and most sites are invisible to them. The tools sold to fix it read one number and call it a strategy. That is guessing at scale.</p>
+        <p>We are the measurement layer that industry never built. We correlate three sources, refuse single-source recommendations, publish deltas per signal, and hand you the spec. Your team ships, or ours does. Either way, every claim carries the receipt that earned it.</p>
+        <p>This is the document that explains why. <em>Read it once. Bookmark it. Come back when you need the reminder.</em></p>
+      </div>
+    </section>
+
+    <!-- THE MANIFESTO BODY -->
+    <section class="doc-body">
+      <div class="doc-body-label">The Manifesto · Read as one paragraph.</div>
+      <div class="doc-body-copy">
+        <p>This is the new reality. AI decides who gets found now. It reads every site before it names one. Most sites are invisible. Their owners never know. Their agencies ship and move on. A dashboard, a promise, no proof. That's not how you win. <span class="real">Real decisions</span> come from <span class="real">real data</span>, and real data is the one thing nobody handed you. Most site structure is flawed and no one has called it out. Schema shells with no keys. Dead canonicals. Reviews rotting in iframes no crawler will read. AI bots blocked from reading the site. We put the truth on the table. And here's what they missed: the same broken code hiding you from AI is burying you in Google too. Fix it once, win both. <span class="real">Real</span> data correlated directly to your business goals. We're not another agency selling fake certainty. We build with our hands. We measure what's real. We prove it or we say nothing. Because <span class="real">real work</span> produces <span class="real">real outcomes</span>. Cited by the machines, ranked by search, earned, not guessed. The game isn't rigged beyond winning. Hard work still wins. Real still beats fake. We're fixing the code rotting the internet and raising the bar for every site that ships after ours. This is the line. We're drawing it. The revolution starts now.</p>
+      </div>
+    </section>
+
+    <!-- PRINCIPLES -->
+    <section class="principles">
+      <div class="principles-label">Principles we hold</div>
+      <h2 class="principles-h">The lines we <span class="ox">will not cross.</span></h2>
+      <ol class="principles-list">
+        <li>
+          <div class="principle-num">01</div>
+          <div>
+            <h3 class="principle-h">Three sources or nothing.</h3>
+            <p class="principle-body">A finding only becomes a recommendation when at least two of three sources agree. AI answers, search performance, and site structure. Everything else is a note in the report, never the spec. We refuse to guess and we refuse to sell guessing dressed as certainty.</p>
+          </div>
+        </li>
+        <li>
+          <div class="principle-num">02</div>
+          <div>
+            <h3 class="principle-h">Publish the receipt.</h3>
+            <p class="principle-body">Every scan carries the version it was run under. Every recommendation carries the signals that surfaced it. Every re-scan publishes deltas per signal, per surface, per engine. If the numbers did not move, we tell you. If a category is structurally unwinnable, we tell you where the ceiling is.</p>
+          </div>
+        </li>
+        <li>
+          <div class="principle-num">03</div>
+          <div>
+            <h3 class="principle-h">Neutral to the build.</h3>
+            <p class="principle-body">We are the measurement layer that sits above whatever vendor stack you already have. We do not need to be your builder to be your measurement discipline. We get you the data. We don't care who makes the changes, as long as they get made correctly.</p>
+          </div>
+        </li>
+        <li>
+          <div class="principle-num">04</div>
+          <div>
+            <h3 class="principle-h">AI and search move together.</h3>
+            <p class="principle-body">Both surfaces reward the same underlying structural legibility. Fix your site once, correctly, and AI citation climbs alongside search ranking. You are not betting on a speculative AI-only future. You are making structural fixes that pay off everywhere a customer looks for you.</p>
+          </div>
+        </li>
+        <li>
+          <div class="principle-num">05</div>
+          <div>
+            <h3 class="principle-h">No advertising accepted.</h3>
+            <p class="principle-body">The AI Visibility Index publishes quarterly. Named winners, named losers, original data across the top U.S. metros. Nobody pays to be in it or to move up in it. The measurement is not a marketing surface. The measurement is the credential.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+  </main>
+</div>
+
+<!-- THE DECLARATION — oxblood ground -->
+<section class="section-ox declaration">
+  <div class="container">
+    <div class="declaration-label">The Declaration</div>
+    <h2 class="declaration-close">We are starting a revolution. Are you with us?</h2>
+
+    <div class="signature">
+      <div class="signature-block">
+        <div class="signature-label">Filed by</div>
+        <div class="signature-value doc-name">The LinksMaxing team</div>
+      </div>
+      <div class="signature-block">
+        <div class="signature-label">Where</div>
+        <div class="signature-value">Dallas · Texas</div>
+      </div>
+      <div class="signature-block">
+        <div class="signature-label">When</div>
+        <div class="signature-value">September 24, 2026</div>
+      </div>
+      <div class="signature-block">
+        <div class="signature-label">Version</div>
+        <div class="signature-value">v1.0</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <!-- PAGE CLOSE -->
+  <section class="page-close">
+    <h2 class="close-h">Sign on with a <span class="ox">scan.</span></h2>
+    <p class="close-body">You do not have to agree with every line. You do have to look at the data. Your first scan across all three sources, delivered as a build spec your team can ship against. That is how the revolution actually happens.</p>
+    <a href="mailto:harper@linksmaxing.com?subject=LinksMaxing scan request" class="cta-button">Request your scan →</a>
+    <p class="close-alt">Or write directly to <a href="mailto:harper@linksmaxing.com">harper@linksmaxing.com</a></p>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <svg class="footer-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M8 15 h30 v13 h-17 v44 h17 v13 h-30 z" fill="currentColor"/>
+      <path d="M92 15 h-30 v13 h17 v44 h-17 v13 h30 z" fill="currentColor"/>
+      <rect x="42" y="27" width="16" height="46" fill="#6E0E0E"/>
+    </svg>
+    <div class="footer-signature">LINKSMAXING · DALLAS · 2026</div>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <div class="footer-col-head">Site</div>
+        <a href="/index">The AI Visibility Index</a>
+        <a href="/method">Method</a>
+        <a href="/proof">Case entries</a>
+        <a href="/manifesto">Manifesto</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Contact</div>
+        <a href="mailto:harper@linksmaxing.com">harper@linksmaxing.com</a>
+        <span>Dallas, TX</span>
+      </div>
+      <div class="footer-col footer-col-colophon">
+        <div class="footer-col-head">Colophon</div>
+        <p>Set in <strong>Saira Condensed</strong>, <strong>Inter</strong>, and <strong>JetBrains Mono</strong>. Signal: oxblood <em>#6E0E0E</em>. Built on evidence. Made in Dallas. No advertising accepted, ever.</p>
+      </div>
+    </div>
+
+    <div class="footer-copy">© 2026 LinksMaxing · All rights reserved</div>
+  </div>
+</footer>
+
+<script is:inline>
+(function(){
+  var stickyNav = document.querySelector('.nav-sticky');
+  var trigger = document.querySelector('.doc-head');
+  if (!stickyNav || !trigger || !('IntersectionObserver' in window)) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      var show = !e.isIntersecting;
+      stickyNav.classList.toggle('visible', show);
+      stickyNav.setAttribute('aria-hidden', show ? 'false' : 'true');
+    });
+  }, { rootMargin: '-40px 0px 0px 0px', threshold: 0 });
+  obs.observe(trigger);
+})();
+</script>
+</body>
+</html>

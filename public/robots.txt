@@ -1,0 +1,57 @@
+# =========================================================
+# LinksMaxing · robots.txt
+# We measure whether AI names businesses. We invite the bots.
+# =========================================================
+
+# All standard crawlers welcome.
+User-agent: *
+Allow: /
+Disallow: /_astro/
+Disallow: /api/
+
+# Explicit welcome to AI crawlers — retrieval and training.
+# We name them here so nobody has to guess our stance.
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://linksmaxing.com/sitemap.xml

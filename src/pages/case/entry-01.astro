@@ -1,0 +1,1086 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case · Entry 01 · How it moved · LinksMaxing</title>
+<meta name="description" content="Local service business. 60% to 100% AI mention rate. Position 12 to 5 in search. Four weeks, one spec, both surfaces. Three sources agreed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&family=Saira+Condensed:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ==== DESIGN TOKENS ==== */
+:root {
+  --bone: #F4F1EA;
+  --ink:  #151412;
+  --ox:   #6E0E0E;
+  --ox-hover: #8B1616;
+  --ink-dim:    rgba(21, 20, 18, 0.72);
+  --ink-dimmer: rgba(21, 20, 18, 0.5);
+  --ink-rule:   rgba(21, 20, 18, 0.22);
+  --ink-soft:   rgba(21, 20, 18, 0.14);
+  --bone-dim:    rgba(244, 241, 234, 0.72);
+  --bone-dimmer: rgba(244, 241, 234, 0.5);
+  --bone-rule:   rgba(244, 241, 234, 0.22);
+  --bone-soft:   rgba(244, 241, 234, 0.14);
+  --font-d: 'Saira Condensed', Impact, sans-serif;
+  --font-b: 'Inter', system-ui, sans-serif;
+  --font-m: 'JetBrains Mono', ui-monospace, monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  background: var(--bone);
+  color: var(--ink);
+  font-family: var(--font-b);
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--ox); color: var(--bone); }
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 64px);
+}
+.section {
+  padding: clamp(80px, 12vh, 150px) 0;
+}
+.section-dark { background: var(--ink); color: var(--bone); }
+
+/* ==== TOP NAV ==== */
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 20px 0 16px;
+  border-bottom: 0.5px solid var(--ink-soft);
+  gap: 24px;
+}
+.nav-brand { display: inline-flex; align-items: baseline; gap: 10px; }
+.nav-brand .logo { font-weight: 500; font-size: 15px; letter-spacing: -0.005em; line-height: 1; }
+.nav-brand .logo-sub {
+  font-family: var(--font-m);
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-dimmer);
+  line-height: 1;
+}
+.nav-links { display: flex; gap: clamp(18px, 2.2vw, 28px); align-items: baseline; }
+.nav-links a {
+  font-family: var(--font-m);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-links a.active { color: var(--ox); }
+.nav-cta {
+  font-family: var(--font-m);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ox);
+  border-bottom: 1px solid var(--ox);
+  padding-bottom: 3px;
+  white-space: nowrap;
+}
+
+/* ==== STICKY NAV ==== */
+.nav-sticky {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(244, 241, 234, 0.94);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 0.5px solid var(--ink-rule);
+  transform: translateY(-105%);
+  transition: transform 380ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  pointer-events: none;
+}
+.nav-sticky.visible { transform: translateY(0); pointer-events: auto; }
+.nav-sticky-inner {
+  max-width: 1280px; margin: 0 auto;
+  padding: 12px clamp(20px, 4vw, 64px);
+  display: flex; justify-content: space-between; align-items: center; gap: 24px;
+}
+.nav-sticky-brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 500; font-size: 14px; color: var(--ink); white-space: nowrap; }
+.nav-sticky-mark { display: block; width: 26px; height: 26px; color: var(--ink); }
+.nav-sticky-links { display: flex; gap: clamp(16px, 2vw, 26px); }
+.nav-sticky-links a {
+  font-family: var(--font-m);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.nav-sticky-links a.active { color: var(--ox); }
+.nav-sticky-cta {
+  font-family: var(--font-m);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ox);
+  border-bottom: 1px solid var(--ox);
+  padding-bottom: 3px;
+}
+
+/* ==== PAGE HEADER — case-specific treatment ==== */
+.page-head {
+  padding: clamp(40px, 6vh, 72px) 0 clamp(56px, 9vh, 96px);
+  border-bottom: 0.5px solid var(--ink-rule);
+}
+.case-label {
+  font-family: var(--font-m);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ox);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+.case-label-dim { color: var(--ink-dim); }
+.case-title {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(52px, 8.5vw, 132px);
+  line-height: 0.88;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  text-wrap: balance;
+}
+.case-title .ox { color: var(--ox); }
+.case-dek {
+  font-size: clamp(17px, 1.35vw, 20px);
+  line-height: 1.6;
+  color: var(--ink-dim);
+  max-width: 780px;
+  margin-bottom: clamp(40px, 6vh, 60px);
+}
+.case-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(20px, 3vw, 40px);
+  padding: 24px 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+.case-meta-cell { display: flex; flex-direction: column; gap: 6px; }
+.case-meta-label {
+  font-family: var(--font-m);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-dimmer);
+}
+.case-meta-value {
+  font-family: var(--font-b);
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+/* ==== CONTENT SECTIONS ==== */
+.content-section {
+  padding: clamp(64px, 10vh, 120px) 0;
+  border-top: 0.5px solid var(--ink-soft);
+}
+.content-section:first-of-type { border-top: none; }
+.section-marker {
+  font-family: var(--font-m);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ox);
+  margin-bottom: 22px;
+}
+.content-h {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(36px, 5.5vw, 78px);
+  line-height: 0.94;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  text-wrap: balance;
+}
+.content-h .ox { color: var(--ox); }
+.content-body {
+  max-width: 820px;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink-dim);
+}
+.content-body p + p { margin-top: 20px; }
+.content-body strong { color: var(--ink); font-weight: 500; }
+.content-body em { color: var(--ox); font-style: normal; font-weight: 500; }
+
+/* ==== BASELINE vs. AFTER STAT COMPARISON ==== */
+.stat-compare {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(32px, 5vw, 72px);
+  margin: 44px 0 0;
+  padding: 32px 0;
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+}
+.stat-compare-cell { display: flex; flex-direction: column; }
+.stat-compare-label {
+  font-family: var(--font-m);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-dimmer);
+  margin-bottom: 14px;
+}
+.stat-compare-value {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(44px, 5.5vw, 88px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.stat-compare-value .before { color: var(--ink-dimmer); }
+.stat-compare-value .arrow { color: var(--ink-dim); font-size: 0.6em; }
+.stat-compare-value .after { color: var(--ox); }
+.stat-compare-gain {
+  padding-top: 16px;
+  border-top: 1px solid var(--ink-rule);
+}
+.stat-compare-delta {
+  display: block;
+  font-family: var(--font-m);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ox);
+  margin-bottom: 6px;
+}
+.stat-compare-note {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-dim);
+}
+
+/* ==== THREE-SOURCE FINDING GRID ==== */
+.finding-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 40px;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+.finding-cell {
+  padding: 32px clamp(16px, 2vw, 28px) 32px 0;
+  border-right: 0.5px solid var(--ink-soft);
+}
+.finding-cell:last-child { border-right: none; padding-right: 0; }
+.finding-cell:not(:first-child) { padding-left: clamp(16px, 2vw, 28px); }
+.finding-num {
+  font-family: var(--font-m);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ox);
+  margin-bottom: 16px;
+}
+.finding-h {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: 22px;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  margin-bottom: 14px;
+}
+.finding-body {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-dim);
+  margin-bottom: 16px;
+}
+.finding-tag {
+  font-family: var(--font-m);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ox);
+  padding-top: 14px;
+  border-top: 0.5px solid var(--ink-soft);
+  display: block;
+}
+
+/* ==== SHIP LIST — what got built ==== */
+.ship-list {
+  list-style: none;
+  padding: 0;
+  margin: 32px 0 0;
+  border-top: 1px solid var(--ink);
+}
+.ship-list li {
+  display: grid;
+  grid-template-columns: 34px 1fr 100px;
+  gap: clamp(16px, 3vw, 32px);
+  padding: 20px 0;
+  border-bottom: 0.5px solid var(--ink-soft);
+  align-items: baseline;
+}
+.ship-num {
+  font-family: var(--font-m);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--ink-dimmer);
+}
+.ship-body {
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.ship-body em { color: var(--ox); font-style: normal; font-weight: 500; }
+.ship-source {
+  font-family: var(--font-m);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ox);
+  text-align: right;
+}
+
+/* ==== DARK PULL-QUOTE BLOCK ==== */
+.dark-block {
+  background: var(--ink);
+  color: var(--bone);
+  padding: clamp(44px, 7vh, 88px) clamp(24px, 4vw, 64px);
+  margin: clamp(48px, 7vh, 88px) 0;
+}
+.dark-block-label {
+  font-family: var(--font-m);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bone-dim);
+  margin-bottom: 24px;
+}
+.dark-block-body {
+  font-family: var(--font-d);
+  font-weight: 700;
+  font-size: clamp(28px, 3.6vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--bone);
+  max-width: 940px;
+}
+.dark-block-body em { color: var(--ox); font-style: normal; font-weight: 900; }
+
+/* ==== TIMELINE ==== */
+.timeline {
+  margin: 40px 0 0;
+  border-left: 3px solid var(--ink);
+  padding-left: 28px;
+}
+.timeline-item { padding-bottom: 34px; position: relative; }
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -37px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  background: var(--ox);
+  border-radius: 50%;
+}
+.timeline-date {
+  font-family: var(--font-m);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ox);
+  margin-bottom: 8px;
+}
+.timeline-h {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: 22px;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  margin-bottom: 8px;
+}
+.timeline-body { font-size: 15px; line-height: 1.55; color: var(--ink-dim); max-width: 640px; }
+
+/* ==== REFUSE / DIDN'T TOUCH LIST ==== */
+.refuse-list {
+  margin: 32px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.refuse-list li {
+  padding: 18px 0;
+  border-top: 0.5px solid var(--ink-soft);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: baseline;
+}
+.refuse-list li:last-child { border-bottom: 0.5px solid var(--ink-soft); }
+.refuse-what { font-size: 15.5px; color: var(--ink); }
+.refuse-why {
+  font-family: var(--font-m);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-dimmer);
+  white-space: nowrap;
+}
+
+/* ==== PAGE CLOSE ==== */
+.page-close {
+  padding: clamp(80px, 12vh, 140px) 0 clamp(48px, 8vh, 96px);
+  margin-top: clamp(56px, 8vh, 96px);
+  border-top: 3px solid var(--ink);
+}
+.close-h {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(44px, 8vw, 110px);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  text-wrap: balance;
+}
+.close-h .ox { color: var(--ox); }
+.close-body {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-dim);
+  max-width: 640px;
+  margin-bottom: 36px;
+}
+.cta-button {
+  display: inline-block;
+  background: var(--ox);
+  color: var(--bone);
+  font-family: var(--font-m);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 20px 36px;
+  transition: background 0.2s;
+}
+.cta-button:hover { background: var(--ox-hover); }
+.close-alt {
+  margin-top: 26px;
+  font-size: 14px;
+  color: var(--ink-dim);
+}
+.close-alt a { color: var(--ink); border-bottom: 1px solid var(--ink-rule); padding-bottom: 1px; }
+
+/* ==== FOOTER ==== */
+.footer { padding: clamp(60px, 8vh, 100px) 0 clamp(36px, 5vh, 60px); }
+.footer-mark { width: 32px; height: 32px; color: var(--bone); margin-bottom: 18px; }
+.footer-signature {
+  font-family: var(--font-m);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--bone-dim);
+  margin-bottom: clamp(48px, 6vh, 72px);
+  padding-bottom: 28px;
+  border-bottom: 0.5px solid var(--bone-rule);
+}
+.footer-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  gap: clamp(28px, 4vw, 64px);
+  margin-bottom: 40px;
+}
+.footer-col-head {
+  font-family: var(--font-m);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--bone-dim);
+  margin-bottom: 14px;
+}
+.footer-col a, .footer-col span, .footer-col p {
+  display: block;
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: var(--bone-dim);
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--bone); }
+.footer-col-colophon p { font-size: 12.5px; line-height: 1.75; color: var(--bone-dimmer); max-width: 380px; }
+.footer-col-colophon p em { color: var(--ox); font-style: normal; }
+.footer-copy {
+  padding-top: 22px;
+  border-top: 0.5px solid var(--bone-soft);
+  font-family: var(--font-m);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--bone-dimmer);
+}
+
+/* ==== MOBILE ==== */
+@media (max-width: 900px) {
+  .case-meta { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .finding-grid { grid-template-columns: 1fr; }
+  .finding-cell { border-right: none; border-bottom: 0.5px solid var(--ink-soft); padding: 24px 0; }
+  .finding-cell:last-child { border-bottom: none; }
+  .finding-cell:not(:first-child) { padding-left: 0; }
+  .stat-compare { grid-template-columns: 1fr; gap: 32px; }
+  .footer-cols { grid-template-columns: 1fr 1fr; }
+  .footer-col-colophon { grid-column: 1 / -1; }
+}
+
+@media (max-width: 720px) {
+  html, body { -webkit-text-size-adjust: 100%; }
+  .container { padding: 0 20px; }
+
+  .nav-top { padding: 14px 0 12px; align-items: center; gap: 14px; }
+  .nav-top .nav-links { display: none; }
+  .nav-brand .logo { font-size: 14px; }
+  .nav-brand .logo-sub { font-size: 8.5px; letter-spacing: 0.22em; }
+  .nav-cta { font-size: 10px; letter-spacing: 0.14em; }
+  .nav-sticky-inner { padding: 10px 20px; gap: 14px; }
+  .nav-sticky-brand { font-size: 13px; gap: 8px; }
+  .nav-sticky-mark { width: 22px; height: 22px; }
+  .nav-sticky-links { display: none; }
+  .nav-sticky-cta { font-size: 10px; letter-spacing: 0.14em; }
+
+  .page-head { padding: 32px 0 40px; }
+  .case-label { font-size: 10px; margin-bottom: 18px; flex-wrap: wrap; gap: 8px; }
+  .case-title { font-size: clamp(38px, 12vw, 78px); margin-bottom: 22px; }
+  .case-dek { font-size: 15.5px; margin-bottom: 32px; }
+  .case-meta-label { font-size: 9px; letter-spacing: 0.18em; }
+  .case-meta-value { font-size: 13.5px; }
+
+  .content-section { padding: 48px 0; }
+  .section-marker { font-size: 10px; margin-bottom: 16px; }
+  .content-h { font-size: clamp(28px, 8.5vw, 50px); margin-bottom: 22px; }
+  .content-body { font-size: 15.5px; line-height: 1.6; }
+
+  .stat-compare { margin-top: 32px; padding: 24px 0; }
+  .stat-compare-label { font-size: 10px; margin-bottom: 10px; }
+  .stat-compare-value { font-size: clamp(34px, 10vw, 60px); gap: 12px; margin-bottom: 14px; }
+  .stat-compare-gain { padding-top: 12px; }
+  .stat-compare-delta { font-size: 11px; letter-spacing: 0.12em; }
+  .stat-compare-note { font-size: 13px; }
+
+  .finding-num { font-size: 9.5px; margin-bottom: 12px; }
+  .finding-h { font-size: 19px; margin-bottom: 10px; }
+  .finding-body { font-size: 13.5px; }
+  .finding-tag { font-size: 9.5px; padding-top: 12px; }
+
+  .ship-list li { grid-template-columns: 28px 1fr; gap: 14px; padding: 18px 0; }
+  .ship-source { grid-column: 2; text-align: left; padding-top: 4px; font-size: 9.5px; }
+  .ship-num { font-size: 10px; }
+  .ship-body { font-size: 14.5px; }
+
+  .dark-block { padding: 36px 24px; margin: 32px 0; }
+  .dark-block-label { font-size: 10px; margin-bottom: 18px; }
+  .dark-block-body { font-size: clamp(22px, 6vw, 34px); line-height: 1.15; }
+
+  .timeline { padding-left: 20px; border-left-width: 2px; }
+  .timeline-item::before { left: -27px; width: 10px; height: 10px; }
+  .timeline-item { padding-bottom: 26px; }
+  .timeline-date { font-size: 9.5px; margin-bottom: 6px; }
+  .timeline-h { font-size: 18px; }
+  .timeline-body { font-size: 14px; }
+
+  .refuse-list li { grid-template-columns: 1fr; gap: 6px; padding: 14px 0; }
+  .refuse-what { font-size: 14.5px; }
+  .refuse-why { font-size: 9.5px; white-space: normal; }
+
+  .page-close { padding: 56px 0 40px; margin-top: 40px; }
+  .close-h { font-size: clamp(36px, 11vw, 72px); margin-bottom: 22px; }
+  .close-body { font-size: 15.5px; margin-bottom: 28px; }
+  .cta-button { padding: 16px 28px; font-size: 12px; letter-spacing: 0.16em; }
+
+  .footer { padding: 52px 0 40px; }
+  .footer-signature { font-size: 10px; margin-bottom: 40px; padding-bottom: 22px; }
+  .footer-cols { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .footer-col-colophon { grid-column: 1 / -1; }
+  .footer-col-head { font-size: 9.5px; margin-bottom: 10px; }
+  .footer-col a, .footer-col span { font-size: 12.5px; }
+  .footer-copy { font-size: 9.5px; padding-top: 18px; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  .case-title { font-size: clamp(34px, 13vw, 60px); }
+  .case-meta { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .footer-cols { grid-template-columns: 1fr; gap: 24px; }
+}
+a, button, [role="button"], .cta, .cta-primary, .cta-ghost, .nav-link, [href], [onclick] { cursor: pointer; }
+</style>
+<link rel="canonical" href="https://linksmaxing.com/case/entry-01/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="LinksMaxing">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://linksmaxing.com/case/entry-01/">
+<meta property="og:title" content="Case · Entry 01 · How it moved · LinksMaxing">
+<meta property="og:description" content="Local service business. 60% to 100% AI mention rate. Position 12 to 5 in search. Four weeks, one spec, both surfaces. Three sources agreed.">
+<meta property="og:image" content="https://linksmaxing.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="LinksMaxing">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-10-14T00:00:00Z">
+<meta property="article:author" content="LinksMaxing">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://linksmaxing.com/case/entry-01/">
+<meta name="twitter:title" content="Case · Entry 01 · How it moved · LinksMaxing">
+<meta name="twitter:description" content="Local service business. 60% to 100% AI mention rate. Position 12 to 5 in search. Four weeks, one spec, both surfaces. Three sources agreed.">
+<meta name="twitter:image" content="https://linksmaxing.com/og-image.png">
+
+<!-- Favicon + touch icons -->
+<link rel="icon" type="image/png" href="/linksmaxing-logo.png">
+<link rel="apple-touch-icon" href="/linksmaxing-logo.png">
+
+<!-- Schema.org (JSON-LD) -->
+<script type="application/ld+json" is:inline>
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://linksmaxing.com/#organization",
+    "name": "LinksMaxing",
+    "alternateName": "LinksMaxing Dallas",
+    "url": "https://linksmaxing.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://linksmaxing.com/linksmaxing-logo.png",
+      "width": 512,
+      "height": 512
+    },
+    "description": "AI visibility measurement. Three sources cross-referenced. Real data, real decisions.",
+    "foundingDate": "2026",
+    "founder": {
+      "@type": "Person",
+      "name": "Harper Thompson"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dallas",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "harper@linksmaxing.com",
+      "contactType": "sales",
+      "areaServed": "US",
+      "availableLanguage": "en"
+    },
+    "sameAs": [],
+    "knowsAbout": [
+      "AI Visibility Measurement",
+      "Search Engine Optimization",
+      "ChatGPT Named Business Recommendations",
+      "Claude AI Optimization",
+      "Google AI Overviews",
+      "Structured Data",
+      "Schema.org",
+      "Local Search Optimization"
+    ],
+    "slogan": "AI visibility, measured."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://linksmaxing.com/case/entry-01/",
+    "name": "Case \u00b7 Entry 01 \u00b7 How it moved \u00b7 LinksMaxing",
+    "description": "Local service business. 60% to 100% AI mention rate. Position 12 to 5 in search. Four weeks, one spec, both surfaces. Three sources agreed.",
+    "inLanguage": "en-US",
+    "isPartOf": {
+      "@id": "https://linksmaxing.com/#website"
+    },
+    "about": {
+      "@id": "https://linksmaxing.com/#organization"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Case \u00b7 Entry 01 \u00b7 How it moved \u00b7 LinksMaxing",
+    "description": "Local service business. 60% to 100% AI mention rate. Position 12 to 5 in search. Four weeks, one spec, both surfaces. Three sources agreed.",
+    "author": {
+      "@id": "https://linksmaxing.com/#organization"
+    },
+    "publisher": {
+      "@id": "https://linksmaxing.com/#organization"
+    },
+    "datePublished": "2026-10-14T00:00:00Z",
+    "dateModified": "2026-10-14T00:00:00Z",
+    "mainEntityOfPage": "https://linksmaxing.com/case/entry-01/",
+    "image": "https://linksmaxing.com/og-image.png"
+  }
+]
+</script>
+</head>
+<body>
+
+<!-- STICKY NAV -->
+<nav class="nav-sticky" aria-hidden="true">
+  <div class="nav-sticky-inner">
+    <a href="/" class="nav-sticky-brand">
+      <svg class="nav-sticky-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M8 15 h30 v13 h-17 v44 h17 v13 h-30 z" fill="currentColor"/>
+        <path d="M92 15 h-30 v13 h17 v44 h-17 v13 h30 z" fill="currentColor"/>
+        <rect x="42" y="27" width="16" height="46" fill="#6E0E0E"/>
+      </svg>
+      <span>linksmaxing</span>
+    </a>
+    <div class="nav-sticky-links">
+      <a href="/index">The Index</a>
+      <a href="/method">Method</a>
+      <a href="/proof" class="active">Proof</a>
+      <a href="/manifesto">Manifesto</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <a href="mailto:harper@linksmaxing.com" class="nav-sticky-cta">Request scan →</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- TOP NAV -->
+  <nav class="nav-top">
+    <a href="/" class="nav-brand">
+      <span class="logo">linksmaxing</span>
+      <span class="logo-sub">dallas · tx</span>
+    </a>
+    <div class="nav-links">
+      <a href="/index">The Index</a>
+      <a href="/method">Method</a>
+      <a href="/proof" class="active">Proof</a>
+      <a href="/manifesto">Manifesto</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <a href="mailto:harper@linksmaxing.com" class="nav-cta">Request scan →</a>
+  </nav>
+
+  <main>
+
+    <!-- PAGE HEADER -->
+    <header class="page-head">
+      <div class="case-label">
+        <span>Case · Entry 01</span>
+        <span class="case-label-dim">· How it moved</span>
+      </div>
+      <h1 class="case-title">0 → 8 of 12 named on <span class="ox">every direct industry query.</span></h1>
+      <p class="case-dek">Local service business. Fully anonymized. Baseline scan on 09.14.26 found the client named on 60% of category queries at position 12 in search. Four weeks after shipping the recommended fix, the re-scan named them on 100% at position 5. Same fix, both surfaces, three sources agreed before we recommended anything.</p>
+
+      <div class="case-meta">
+        <div class="case-meta-cell">
+          <div class="case-meta-label">Vertical</div>
+          <div class="case-meta-value">Local service business</div>
+        </div>
+        <div class="case-meta-cell">
+          <div class="case-meta-label">Region</div>
+          <div class="case-meta-value">Anonymized metro</div>
+        </div>
+        <div class="case-meta-cell">
+          <div class="case-meta-label">Sample</div>
+          <div class="case-meta-value">30 days · 12 queries</div>
+        </div>
+        <div class="case-meta-cell">
+          <div class="case-meta-label">Sources agreed</div>
+          <div class="case-meta-value">3 of 3</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- SECTION 01 — THE BASELINE -->
+    <section class="content-section">
+      <div class="section-marker">01 · The baseline</div>
+      <h2 class="content-h">What the first scan <span class="ox">actually found.</span></h2>
+      <div class="content-body">
+        <p>The engagement opened with a full three-source scan. Not a spot-check. Hundreds of query variants across the twelve category queries the client's customers actually ask, run against ChatGPT, Claude, and Google AI Overviews. Search Console pulled alongside for the same query set. A rendered-markup audit of every retrievable page on the site.</p>
+        <p>The AI mention rate came back at 60%. Named on some of the twelve, invisible on the rest. Position in Google search averaged 12. Page two territory. The site was not broken. It was <em>illegible</em>. Crawlers reached most pages, and the pages loaded fast, and the copy was written by a real person. That was not the problem.</p>
+        <p>The problem was three sources agreeing that the same entity signals were missing from every place assistants and search engines look for them.</p>
+      </div>
+
+      <div class="finding-grid">
+        <div class="finding-cell">
+          <div class="finding-num">Source A</div>
+          <div class="finding-h">AI answers</div>
+          <p class="finding-body">Source-map capture showed the assistants reaching the site but pulling from a category page missing schema, then supplementing with competitor pages that had it. The client's own copy was cited on 3 of 12 queries. Competitors were named in their place.</p>
+          <span class="finding-tag">AI mention rate · 60%</span>
+        </div>
+        <div class="finding-cell">
+          <div class="finding-num">Source B</div>
+          <div class="finding-h">Search performance</div>
+          <p class="finding-body">Google Search Console showed the client indexed for every category query but averaging position 12. Click-through rate below 2% on impressions that never converted. Traffic pattern consistent with page-two invisibility.</p>
+          <span class="finding-tag">Avg position · 12</span>
+        </div>
+        <div class="finding-cell">
+          <div class="finding-num">Source C</div>
+          <div class="finding-h">Site structure</div>
+          <p class="finding-body">Rendered-markup audit found empty JSON-LD schemas across every location page, canonical URLs pointing at a staging domain that had not resolved since 2023, and review widgets loaded inside iframes no crawler could read.</p>
+          <span class="finding-tag">Structural drift · high</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 02 — THE CORRELATION -->
+    <section class="content-section">
+      <div class="section-marker">02 · The correlation</div>
+      <h2 class="content-h">Where the three sources <span class="ox">agreed.</span></h2>
+      <div class="content-body">
+        <p>None of the individual findings were enough to recommend a fix. A missing schema on its own could be a one-off. A page-two search rank on its own could be a competitive metro. An AI answer citing a competitor once could be an outlier query.</p>
+        <p>All three showing the same gap on the same queries is <em>evidence</em>. The correlation was not the AI mention rate, and it was not the search position. It was that both surfaces were reading the same broken structure and drawing the same conclusion: the entity is not clearly claimed here.</p>
+        <p>That is a fix. It went in the spec.</p>
+      </div>
+    </section>
+
+    <!-- DARK PULL-QUOTE -->
+    <section class="dark-block">
+      <div class="dark-block-label">The bar we hold</div>
+      <p class="dark-block-body">Not a fix until three sources agree it is one. Everything else stays a <em>note</em> in the report, not a recommendation.</p>
+    </section>
+
+    <!-- SECTION 03 — THE SPEC -->
+    <section class="content-section">
+      <div class="section-marker">03 · The spec</div>
+      <h2 class="content-h">What we <span class="ox">recommended.</span></h2>
+      <div class="content-body">
+        <p>The brief handed over was six specific fixes, each tied to at least two of the three source signals. Not an audit report. A build spec their team could ship against, with expected lift documented for both AI citation and search rank.</p>
+      </div>
+
+      <ol class="ship-list">
+        <li>
+          <div class="ship-num">01</div>
+          <div class="ship-body">Entity-first rebuild. One canonical entity claim, echoed in schema, GBP, and page copy across every location.</div>
+          <div class="ship-source">3/3 sources</div>
+        </li>
+        <li>
+          <div class="ship-num">02</div>
+          <div class="ship-body">Per-location LocalBusiness schema with matching canonical URLs, NAP validated against Google Business Profile.</div>
+          <div class="ship-source">3/3 sources</div>
+        </li>
+        <li>
+          <div class="ship-num">03</div>
+          <div class="ship-body">Category answer pages retrievable by name, one per direct industry query, cross-linked to the entity graph.</div>
+          <div class="ship-source">3/3 sources</div>
+        </li>
+        <li>
+          <div class="ship-num">04</div>
+          <div class="ship-body">Review schema exposed in server-rendered HTML, not inside an iframe. Reviews now crawlable, not just visible.</div>
+          <div class="ship-source">2/3 sources</div>
+        </li>
+        <li>
+          <div class="ship-num">05</div>
+          <div class="ship-body">Canonical hygiene sweep. Staging domain retired from schema. All references pointed at the production URL.</div>
+          <div class="ship-source">2/3 sources</div>
+        </li>
+        <li>
+          <div class="ship-num">06</div>
+          <div class="ship-body">Robots access verified per crawler. GPTBot, ClaudeBot, Google-Extended, PerplexityBot all allowed on the category and location pages.</div>
+          <div class="ship-source">2/3 sources</div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- SECTION 04 — TIMELINE -->
+    <section class="content-section">
+      <div class="section-marker">04 · The build</div>
+      <h2 class="content-h">Four weeks. <span class="ox">Their team.</span></h2>
+      <div class="content-body">
+        <p>The client's own development team executed the spec. LinksMaxing was not the builder on this engagement. That is the model. You get the diagnostic and the spec. You ship it, or we do. Either way the same numbers get measured.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">09.14.26 · day 0</div>
+          <div class="timeline-h">Baseline scan complete</div>
+          <p class="timeline-body">Three-source scan run against 12 category queries. 60% AI mention rate. Position 12 average in search. Structural findings documented.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">09.16.26 · day 2</div>
+          <div class="timeline-h">Brief delivered</div>
+          <p class="timeline-body">Six-fix spec handed to client team. Expected lift documented per fix. Signals-that-pointed-to-fix mapping included.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">09.30.26 · day 16</div>
+          <div class="timeline-h">Fixes 01, 02, 03 shipped</div>
+          <p class="timeline-body">Entity rebuild, schema, and answer pages live. Client team completed the entity-first architecture ahead of the sprint estimate.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">10.09.26 · day 25</div>
+          <div class="timeline-h">Fixes 04, 05, 06 shipped</div>
+          <p class="timeline-body">Reviews un-iframed. Canonicals swept. Bot access verified. Structural drift closed to zero.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">10.14.26 · day 30</div>
+          <div class="timeline-h">Re-scan against the same query set</div>
+          <p class="timeline-body">Identical query variants, same engines, cache-busted. Delta reports generated per signal, per surface, per engine.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 05 — THE RESULT -->
+    <section class="content-section">
+      <div class="section-marker">05 · The result</div>
+      <h2 class="content-h">Same fix. <span class="ox">Both surfaces.</span></h2>
+      <div class="content-body">
+        <p>The re-scan ran on 10.14.26, exactly 30 days after baseline. Same 12 category queries. Same three engines. Same three-source correlation methodology. No new queries added, no favorable engines swapped in. Cache-busted so nothing came from the previous scan.</p>
+      </div>
+
+      <div class="stat-compare">
+        <div class="stat-compare-cell">
+          <div class="stat-compare-label">AI mention rate</div>
+          <div class="stat-compare-value">
+            <span class="before">60%</span>
+            <span class="arrow">→</span>
+            <span class="after">100%</span>
+          </div>
+          <div class="stat-compare-gain">
+            <span class="stat-compare-delta">+40 pts</span>
+            <div class="stat-compare-note">Named on every one of the twelve category queries, across ChatGPT, Claude, and Google AI Overviews. Zero misses.</div>
+          </div>
+        </div>
+        <div class="stat-compare-cell">
+          <div class="stat-compare-label">Avg search position</div>
+          <div class="stat-compare-value">
+            <span class="before">12</span>
+            <span class="arrow">→</span>
+            <span class="after">5</span>
+          </div>
+          <div class="stat-compare-gain">
+            <span class="stat-compare-delta">7 positions higher</span>
+            <div class="stat-compare-note">Off page two into the top five organic results. Click-through rate on impressions tripled in the same window.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 06 — WHAT WE DID NOT TOUCH -->
+    <section class="content-section">
+      <div class="section-marker">06 · What we did not touch</div>
+      <h2 class="content-h">The findings we <span class="ox">refused</span> to recommend.</h2>
+      <div class="content-body">
+        <p>The baseline scan surfaced other things. Single-source signals. Findings that looked like fixes on one surface and neutral on the other. Cases where a competitor was named for structural reasons the client could not change without misrepresenting themselves.</p>
+        <p>These went in the report as notes. Not the spec. This is the line.</p>
+      </div>
+
+      <ul class="refuse-list">
+        <li>
+          <div class="refuse-what">A category query where ChatGPT structurally routes to a professional credentialing body, not to any specific business.</div>
+          <div class="refuse-why">Ceiling · Not winnable</div>
+        </li>
+        <li>
+          <div class="refuse-what">A schema tweak that would have lifted AI citation on one engine but showed no correlation with search rank on any engine.</div>
+          <div class="refuse-why">Single-source · Refused</div>
+        </li>
+        <li>
+          <div class="refuse-what">A content expansion into an adjacent vertical the client does not actually serve.</div>
+          <div class="refuse-why">Not honest · Refused</div>
+        </li>
+        <li>
+          <div class="refuse-what">A backlink push that would have driven search authority but had no evidence of moving AI answers.</div>
+          <div class="refuse-why">Single-source · Refused</div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- PAGE CLOSE -->
+    <section class="page-close">
+      <h2 class="close-h">See where <span class="ox">you stand.</span></h2>
+      <p class="close-body">Your first scan across all three sources. Delivered as a build spec your team can ship against, or one we build if that is the ask. Every finding traced back to the source that surfaced it. Every recommendation carrying the correlation that earned it.</p>
+      <a href="mailto:harper@linksmaxing.com?subject=LinksMaxing scan request" class="cta-button">Request your scan →</a>
+      <p class="close-alt">Or write directly to <a href="mailto:harper@linksmaxing.com">harper@linksmaxing.com</a></p>
+    </section>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer class="section section-dark footer">
+  <div class="container">
+    <svg class="footer-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M8 15 h30 v13 h-17 v44 h17 v13 h-30 z" fill="currentColor"/>
+      <path d="M92 15 h-30 v13 h17 v44 h-17 v13 h30 z" fill="currentColor"/>
+      <rect x="42" y="27" width="16" height="46" fill="#6E0E0E"/>
+    </svg>
+    <div class="footer-signature">LINKSMAXING · DALLAS · 2026</div>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <div class="footer-col-head">Site</div>
+        <a href="/index">The AI Visibility Index</a>
+        <a href="/method">Method</a>
+        <a href="/proof">Case entries</a>
+        <a href="/manifesto">Manifesto</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Contact</div>
+        <a href="mailto:harper@linksmaxing.com">harper@linksmaxing.com</a>
+        <span>Dallas, TX</span>
+      </div>
+      <div class="footer-col footer-col-colophon">
+        <div class="footer-col-head">Colophon</div>
+        <p>Set in <strong>Saira Condensed</strong>, <strong>Inter</strong>, and <strong>JetBrains Mono</strong>. Signal: oxblood <em>#6E0E0E</em>. Built on evidence. Made in Dallas. No advertising accepted, ever.</p>
+      </div>
+    </div>
+
+    <div class="footer-copy">© 2026 LinksMaxing · All rights reserved</div>
+  </div>
+</footer>
+
+<script is:inline>
+(function(){
+  var stickyNav = document.querySelector('.nav-sticky');
+  var trigger = document.querySelector('.page-head');
+  if (!stickyNav || !trigger || !('IntersectionObserver' in window)) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      var show = !e.isIntersecting;
+      stickyNav.classList.toggle('visible', show);
+      stickyNav.setAttribute('aria-hidden', show ? 'false' : 'true');
+    });
+  }, { rootMargin: '-40px 0px 0px 0px', threshold: 0 });
+  obs.observe(trigger);
+})();
+</script>
+</body>
+</html>

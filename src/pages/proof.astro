@@ -1,0 +1,696 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proof · Case entries · LinksMaxing</title>
+<meta name="description" content="The receipts. Every recommendation carries a source. Every engagement carries a delta. Case entries published as they close.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&family=Saira+Condensed:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bone: #F4F1EA;
+  --ink:  #151412;
+  --ox:   #6E0E0E;
+  --ox-hover: #8B1616;
+  --ink-dim:    rgba(21, 20, 18, 0.72);
+  --ink-dimmer: rgba(21, 20, 18, 0.5);
+  --ink-rule:   rgba(21, 20, 18, 0.22);
+  --ink-soft:   rgba(21, 20, 18, 0.14);
+  --bone-dim:    rgba(244, 241, 234, 0.72);
+  --bone-dimmer: rgba(244, 241, 234, 0.5);
+  --bone-rule:   rgba(244, 241, 234, 0.22);
+  --bone-soft:   rgba(244, 241, 234, 0.14);
+  --font-d: 'Saira Condensed', Impact, sans-serif;
+  --font-b: 'Inter', system-ui, sans-serif;
+  --font-m: 'JetBrains Mono', ui-monospace, monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  background: var(--bone);
+  color: var(--ink);
+  font-family: var(--font-b);
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--ox); color: var(--bone); }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 64px); }
+
+/* ==== NAV ==== */
+.nav-top {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 20px 0 16px; border-bottom: 0.5px solid var(--ink-soft); gap: 24px;
+}
+.nav-brand { display: inline-flex; align-items: baseline; gap: 10px; }
+.nav-brand .logo { font-weight: 500; font-size: 15px; letter-spacing: -0.005em; line-height: 1; }
+.nav-brand .logo-sub { font-family: var(--font-m); font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-dimmer); line-height: 1; }
+.nav-links { display: flex; gap: clamp(18px, 2.2vw, 28px); align-items: baseline; }
+.nav-links a { font-family: var(--font-m); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-dim); }
+.nav-links a:hover { color: var(--ink); }
+.nav-links a.active { color: var(--ox); }
+.nav-cta { font-family: var(--font-m); font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ox); border-bottom: 1px solid var(--ox); padding-bottom: 3px; white-space: nowrap; }
+
+.nav-sticky {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(244, 241, 234, 0.94);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 0.5px solid var(--ink-rule);
+  transform: translateY(-105%);
+  transition: transform 380ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  pointer-events: none;
+}
+.nav-sticky.visible { transform: translateY(0); pointer-events: auto; }
+.nav-sticky-inner { max-width: 1280px; margin: 0 auto; padding: 12px clamp(20px, 4vw, 64px); display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.nav-sticky-brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 500; font-size: 14px; color: var(--ink); white-space: nowrap; }
+.nav-sticky-mark { display: block; width: 26px; height: 26px; color: var(--ink); }
+.nav-sticky-links { display: flex; gap: clamp(16px, 2vw, 26px); }
+.nav-sticky-links a { font-family: var(--font-m); font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-dim); }
+.nav-sticky-links a.active { color: var(--ox); }
+.nav-sticky-cta { font-family: var(--font-m); font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ox); border-bottom: 1px solid var(--ox); padding-bottom: 3px; }
+
+/* ==== PAGE HEADER ==== */
+.page-head {
+  padding: clamp(40px, 6vh, 72px) 0 clamp(56px, 9vh, 96px);
+  border-bottom: 0.5px solid var(--ink-rule);
+}
+.page-label {
+  display: inline-block;
+  font-family: var(--font-m);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ox);
+  margin-bottom: 22px;
+}
+.page-title {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(56px, 11vw, 176px);
+  line-height: 0.86;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  margin-bottom: 26px;
+  text-wrap: balance;
+}
+.page-title .ox { color: var(--ox); }
+.page-dek {
+  font-size: clamp(17px, 1.4vw, 21px);
+  line-height: 1.55;
+  color: var(--ink-dim);
+  max-width: 780px;
+}
+.page-dek em { color: var(--ox); font-style: normal; font-weight: 500; }
+
+/* ==== LEDGER META ==== */
+.ledger-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(20px, 3vw, 40px);
+  padding: 32px 0;
+  border-bottom: 3px solid var(--ink);
+  margin-bottom: clamp(56px, 8vh, 88px);
+}
+.ledger-cell { display: flex; flex-direction: column; gap: 8px; }
+.ledger-label {
+  font-family: var(--font-m);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-dimmer);
+}
+.ledger-value {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(28px, 3.2vw, 44px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.ledger-value.ox { color: var(--ox); }
+
+/* ==== CASE ENTRY CARDS ==== */
+.entries {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.entry-card {
+  display: grid;
+  grid-template-columns: 200px 1fr auto;
+  gap: clamp(24px, 4vw, 64px);
+  padding: clamp(44px, 6vh, 72px) 0;
+  border-top: 3px solid var(--ink);
+  align-items: start;
+  transition: background 0.2s;
+}
+.entry-card:last-child { border-bottom: 3px solid var(--ink); }
+.entry-card:hover { background: rgba(21,20,18,0.02); }
+
+.entry-marker {
+  font-family: var(--font-m);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ox);
+  padding-top: 8px;
+}
+.entry-marker .dim {
+  display: block;
+  color: var(--ink-dimmer);
+  margin-top: 6px;
+  font-size: 10px;
+}
+
+.entry-body {}
+.entry-h {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(28px, 3.6vw, 50px);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  text-wrap: balance;
+}
+.entry-h .ox { color: var(--ox); }
+.entry-h a { border-bottom: 3px solid transparent; padding-bottom: 4px; transition: border-color 0.2s; }
+.entry-h a:hover { border-bottom-color: var(--ink); }
+
+.entry-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 22px;
+  font-family: var(--font-m);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  margin-bottom: 22px;
+}
+.entry-meta-dim { color: var(--ink-dimmer); }
+
+.entry-preview {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--ink-dim);
+  max-width: 640px;
+}
+.entry-preview em { color: var(--ox); font-style: normal; font-weight: 500; }
+
+.entry-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  min-width: 190px;
+  padding-left: clamp(20px, 3vw, 40px);
+  border-left: 1px solid var(--ink);
+}
+.entry-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.entry-stat-label {
+  font-family: var(--font-m);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-dimmer);
+}
+.entry-stat-value {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(24px, 2.6vw, 34px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.entry-stat-value .before { color: var(--ink-dimmer); font-size: 0.7em; }
+.entry-stat-value .arrow { color: var(--ink-dim); font-size: 0.6em; padding: 0 6px; }
+.entry-stat-value .after { color: var(--ox); }
+
+.entry-link {
+  display: inline-block;
+  margin-top: 24px;
+  font-family: var(--font-m);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 3px;
+}
+.entry-link:hover { color: var(--ox); border-bottom-color: var(--ox); }
+
+/* ==== UPCOMING NOTE ==== */
+.upcoming {
+  padding: clamp(44px, 7vh, 88px) 0;
+  border-top: 0.5px solid var(--ink-rule);
+  margin-top: clamp(40px, 6vh, 72px);
+}
+.upcoming-label {
+  font-family: var(--font-m);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ox);
+  margin-bottom: 22px;
+}
+.upcoming-h {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(30px, 4vw, 60px);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  max-width: 900px;
+}
+.upcoming-h .ox { color: var(--ox); }
+.upcoming-body {
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: var(--ink-dim);
+  max-width: 720px;
+}
+.upcoming-body em { color: var(--ox); font-style: normal; font-weight: 500; }
+
+/* ==== PAGE CLOSE ==== */
+.page-close {
+  padding: clamp(80px, 12vh, 140px) 0 clamp(48px, 8vh, 96px);
+  margin-top: clamp(56px, 8vh, 96px);
+  border-top: 3px solid var(--ink);
+}
+.close-h {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(44px, 8vw, 110px);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  text-wrap: balance;
+}
+.close-h .ox { color: var(--ox); }
+.close-body {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-dim);
+  max-width: 640px;
+  margin-bottom: 36px;
+}
+.cta-button {
+  display: inline-block;
+  background: var(--ox);
+  color: var(--bone);
+  font-family: var(--font-m);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 20px 36px;
+  transition: background 0.2s;
+}
+.cta-button:hover { background: var(--ox-hover); }
+.close-alt { margin-top: 26px; font-size: 14px; color: var(--ink-dim); }
+.close-alt a { color: var(--ink); border-bottom: 1px solid var(--ink-rule); padding-bottom: 1px; }
+
+/* ==== FOOTER ==== */
+.footer {
+  padding: clamp(60px, 8vh, 100px) 0 clamp(36px, 5vh, 60px);
+  background: var(--ink); color: var(--bone);
+}
+.footer-mark { width: 32px; height: 32px; color: var(--bone); margin-bottom: 18px; }
+.footer-signature { font-family: var(--font-m); font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--bone-dim); margin-bottom: clamp(48px, 6vh, 72px); padding-bottom: 28px; border-bottom: 0.5px solid var(--bone-rule); }
+.footer-cols { display: grid; grid-template-columns: 1fr 1fr 2fr; gap: clamp(28px, 4vw, 64px); margin-bottom: 40px; }
+.footer-col-head { font-family: var(--font-m); font-size: 10px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--bone-dim); margin-bottom: 14px; }
+.footer-col a, .footer-col span, .footer-col p { display: block; font-size: 13.5px; line-height: 1.75; color: var(--bone-dim); }
+.footer-col a:hover { color: var(--bone); }
+.footer-col-colophon p { font-size: 12.5px; line-height: 1.75; color: var(--bone-dimmer); max-width: 380px; }
+.footer-col-colophon p em { color: var(--ox); font-style: normal; }
+.footer-copy { padding-top: 22px; border-top: 0.5px solid var(--bone-soft); font-family: var(--font-m); font-size: 10px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--bone-dimmer); }
+
+/* ==== MOBILE ==== */
+@media (max-width: 900px) {
+  .ledger-meta { grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  .entry-card { grid-template-columns: 1fr; gap: 24px; }
+  .entry-stats {
+    border-left: none;
+    border-top: 1px solid var(--ink);
+    padding-left: 0;
+    padding-top: 22px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 22px 40px;
+  }
+  .entry-stat { flex: 0 0 auto; }
+  .footer-cols { grid-template-columns: 1fr 1fr; }
+  .footer-col-colophon { grid-column: 1 / -1; }
+}
+
+@media (max-width: 720px) {
+  html, body { -webkit-text-size-adjust: 100%; }
+  .container { padding: 0 20px; }
+  .nav-top { padding: 14px 0 12px; align-items: center; gap: 14px; }
+  .nav-top .nav-links { display: none; }
+  .nav-brand .logo { font-size: 14px; }
+  .nav-brand .logo-sub { font-size: 8.5px; letter-spacing: 0.22em; }
+  .nav-cta { font-size: 10px; letter-spacing: 0.14em; }
+  .nav-sticky-inner { padding: 10px 20px; gap: 14px; }
+  .nav-sticky-brand { font-size: 13px; gap: 8px; }
+  .nav-sticky-mark { width: 22px; height: 22px; }
+  .nav-sticky-links { display: none; }
+  .nav-sticky-cta { font-size: 10px; letter-spacing: 0.14em; }
+
+  .page-head { padding: 32px 0 40px; }
+  .page-label { font-size: 10px; margin-bottom: 18px; }
+  .page-title { font-size: clamp(48px, 15vw, 96px); margin-bottom: 22px; }
+  .page-dek { font-size: 15.5px; }
+
+  .ledger-meta { padding: 22px 0; margin-bottom: 44px; gap: 20px; }
+  .ledger-label { font-size: 9px; letter-spacing: 0.18em; }
+  .ledger-value { font-size: clamp(24px, 7vw, 38px); }
+
+  .entry-card { padding: 36px 0; }
+  .entry-marker { font-size: 10px; padding-top: 0; }
+  .entry-h { font-size: clamp(24px, 7vw, 38px); margin-bottom: 16px; }
+  .entry-meta { font-size: 9.5px; letter-spacing: 0.16em; gap: 4px 18px; margin-bottom: 18px; }
+  .entry-preview { font-size: 14.5px; }
+  .entry-stats { gap: 20px 30px; padding-top: 18px; }
+  .entry-stat-label { font-size: 9px; letter-spacing: 0.18em; }
+  .entry-stat-value { font-size: clamp(22px, 6vw, 30px); }
+  .entry-link { font-size: 10.5px; letter-spacing: 0.16em; margin-top: 18px; }
+
+  .upcoming { padding: 40px 0; margin-top: 32px; }
+  .upcoming-label { font-size: 10px; margin-bottom: 16px; }
+  .upcoming-h { font-size: clamp(24px, 7vw, 42px); margin-bottom: 16px; }
+  .upcoming-body { font-size: 15px; }
+
+  .page-close { padding: 56px 0 40px; margin-top: 40px; }
+  .close-h { font-size: clamp(36px, 11vw, 72px); margin-bottom: 22px; }
+  .close-body { font-size: 15.5px; margin-bottom: 28px; }
+  .cta-button { padding: 16px 28px; font-size: 12px; letter-spacing: 0.16em; }
+
+  .footer { padding: 52px 0 40px; }
+  .footer-signature { font-size: 10px; margin-bottom: 40px; padding-bottom: 22px; }
+  .footer-cols { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .footer-col-colophon { grid-column: 1 / -1; }
+  .footer-col-head { font-size: 9.5px; margin-bottom: 10px; }
+  .footer-col a, .footer-col span { font-size: 12.5px; }
+  .footer-copy { font-size: 9.5px; padding-top: 18px; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  .page-title { font-size: clamp(42px, 16vw, 80px); }
+  .ledger-meta { grid-template-columns: 1fr 1fr; }
+  .footer-cols { grid-template-columns: 1fr; gap: 24px; }
+}
+a, button, [role="button"], .cta, .cta-primary, .cta-ghost, .nav-link, [href], [onclick] { cursor: pointer; }
+</style>
+<link rel="canonical" href="https://linksmaxing.com/proof/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="LinksMaxing">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://linksmaxing.com/proof/">
+<meta property="og:title" content="Proof · Case entries · LinksMaxing">
+<meta property="og:description" content="The receipts. Every recommendation carries a source. Every engagement carries a delta. Case entries published as they close.">
+<meta property="og:image" content="https://linksmaxing.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="LinksMaxing">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://linksmaxing.com/proof/">
+<meta name="twitter:title" content="Proof · Case entries · LinksMaxing">
+<meta name="twitter:description" content="The receipts. Every recommendation carries a source. Every engagement carries a delta. Case entries published as they close.">
+<meta name="twitter:image" content="https://linksmaxing.com/og-image.png">
+
+<!-- Favicon + touch icons -->
+<link rel="icon" type="image/png" href="/linksmaxing-logo.png">
+<link rel="apple-touch-icon" href="/linksmaxing-logo.png">
+
+<!-- Schema.org (JSON-LD) -->
+<script type="application/ld+json" is:inline>
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://linksmaxing.com/#organization",
+    "name": "LinksMaxing",
+    "alternateName": "LinksMaxing Dallas",
+    "url": "https://linksmaxing.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://linksmaxing.com/linksmaxing-logo.png",
+      "width": 512,
+      "height": 512
+    },
+    "description": "AI visibility measurement. Three sources cross-referenced. Real data, real decisions.",
+    "foundingDate": "2026",
+    "founder": {
+      "@type": "Person",
+      "name": "Harper Thompson"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dallas",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "harper@linksmaxing.com",
+      "contactType": "sales",
+      "areaServed": "US",
+      "availableLanguage": "en"
+    },
+    "sameAs": [],
+    "knowsAbout": [
+      "AI Visibility Measurement",
+      "Search Engine Optimization",
+      "ChatGPT Named Business Recommendations",
+      "Claude AI Optimization",
+      "Google AI Overviews",
+      "Structured Data",
+      "Schema.org",
+      "Local Search Optimization"
+    ],
+    "slogan": "AI visibility, measured."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://linksmaxing.com/proof/",
+    "name": "Proof \u00b7 Case entries \u00b7 LinksMaxing",
+    "description": "The receipts. Every recommendation carries a source. Every engagement carries a delta. Case entries published as they close.",
+    "inLanguage": "en-US",
+    "isPartOf": {
+      "@id": "https://linksmaxing.com/#website"
+    },
+    "about": {
+      "@id": "https://linksmaxing.com/#organization"
+    }
+  }
+]
+</script>
+</head>
+<body>
+
+<nav class="nav-sticky" aria-hidden="true">
+  <div class="nav-sticky-inner">
+    <a href="/" class="nav-sticky-brand">
+      <svg class="nav-sticky-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M8 15 h30 v13 h-17 v44 h17 v13 h-30 z" fill="currentColor"/>
+        <path d="M92 15 h-30 v13 h17 v44 h-17 v13 h30 z" fill="currentColor"/>
+        <rect x="42" y="27" width="16" height="46" fill="#6E0E0E"/>
+      </svg>
+      <span>linksmaxing</span>
+    </a>
+    <div class="nav-sticky-links">
+      <a href="/index">The Index</a>
+      <a href="/method">Method</a>
+      <a href="/proof" class="active">Proof</a>
+      <a href="/manifesto">Manifesto</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <a href="mailto:harper@linksmaxing.com" class="nav-sticky-cta">Request scan →</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <nav class="nav-top">
+    <a href="/" class="nav-brand">
+      <span class="logo">linksmaxing</span>
+      <span class="logo-sub">dallas · tx</span>
+    </a>
+    <div class="nav-links">
+      <a href="/index">The Index</a>
+      <a href="/method">Method</a>
+      <a href="/proof" class="active">Proof</a>
+      <a href="/manifesto">Manifesto</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <a href="mailto:harper@linksmaxing.com" class="nav-cta">Request scan →</a>
+  </nav>
+
+  <main>
+
+    <!-- PAGE HEADER -->
+    <header class="page-head">
+      <div class="page-label">Proof · The ledger</div>
+      <h1 class="page-title">Case entries. <span class="ox">Receipts, not testimonials.</span></h1>
+      <p class="page-dek">These are the receipts. Every recommendation carries the source that surfaced it. Every engagement carries a dated delta. We publish the full case when the client says yes to naming details, <em>anonymized otherwise</em>. All numbers come from real Atlas scans, traceable to the day they ran.</p>
+    </header>
+
+    <!-- LEDGER META (at-a-glance across all entries) -->
+    <section class="ledger-meta">
+      <div class="ledger-cell">
+        <div class="ledger-label">Entries published</div>
+        <div class="ledger-value">01</div>
+      </div>
+      <div class="ledger-cell">
+        <div class="ledger-label">Avg time to lift</div>
+        <div class="ledger-value">4 wk</div>
+      </div>
+      <div class="ledger-cell">
+        <div class="ledger-label">Both surfaces moved</div>
+        <div class="ledger-value ox">1/1</div>
+      </div>
+      <div class="ledger-cell">
+        <div class="ledger-label">Named without permission</div>
+        <div class="ledger-value">0</div>
+      </div>
+    </section>
+
+    <!-- CASE ENTRY CARDS -->
+    <section class="entries">
+
+      <!-- Entry 01 -->
+      <article class="entry-card">
+        <div class="entry-marker">
+          Case · Entry 01
+          <span class="dim">Filed 10.14.26</span>
+        </div>
+        <div class="entry-body">
+          <h2 class="entry-h">
+            <a href="/case/entry-01">0 → 8 of 12 named on <span class="ox">every direct industry query.</span></a>
+          </h2>
+          <div class="entry-meta">
+            <span>Local service business</span>
+            <span class="entry-meta-dim">·</span>
+            <span>Anonymized metro</span>
+            <span class="entry-meta-dim">·</span>
+            <span>30-day sample</span>
+            <span class="entry-meta-dim">·</span>
+            <span>3 of 3 sources agreed</span>
+          </div>
+          <p class="entry-preview">Baseline scan named the business on 60% of category queries and put the site at position 12 in search. Three sources agreed on the fix: an entity-first rebuild with per-location schema and canonical hygiene. Their team shipped in four weeks. Next scan named them across every engine and every direct industry query. Search position moved in parallel. <em>Same fix, both surfaces, proven in the same pass.</em></p>
+          <a href="/case/entry-01" class="entry-link">Read the full entry →</a>
+        </div>
+        <div class="entry-stats">
+          <div class="entry-stat">
+            <div class="entry-stat-label">AI mention rate</div>
+            <div class="entry-stat-value">
+              <span class="before">60%</span>
+              <span class="arrow">→</span>
+              <span class="after">100%</span>
+            </div>
+          </div>
+          <div class="entry-stat">
+            <div class="entry-stat-label">Avg search position</div>
+            <div class="entry-stat-value">
+              <span class="before">12</span>
+              <span class="arrow">→</span>
+              <span class="after">5</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- UPCOMING NOTE -->
+    <section class="upcoming">
+      <div class="upcoming-label">On the ledger</div>
+      <h2 class="upcoming-h">Entries publish as engagements <span class="ox">close.</span></h2>
+      <p class="upcoming-body">The ledger grows one entry at a time, dated and traceable. We do not publish a case until the scan closes on a re-run and the delta is real. We do not name a client until they consent to naming. <em>No pre-emptive receipts, no marketing dashboards, no case studies written for optics.</em> If it is on this page, it happened.</p>
+    </section>
+
+    <!-- CLOSE -->
+    <section class="page-close">
+      <h2 class="close-h">Add your business <span class="ox">to the ledger.</span></h2>
+      <p class="close-body">Your first scan across all three sources. Delivered as a build spec your team can ship against. Thirty days later we re-scan on the same query set and publish the delta. If it moves, it becomes an entry. If it does not, we tell you why.</p>
+      <a href="mailto:harper@linksmaxing.com?subject=LinksMaxing scan request" class="cta-button">Request your scan →</a>
+      <p class="close-alt">Or write directly to <a href="mailto:harper@linksmaxing.com">harper@linksmaxing.com</a></p>
+    </section>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <svg class="footer-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M8 15 h30 v13 h-17 v44 h17 v13 h-30 z" fill="currentColor"/>
+      <path d="M92 15 h-30 v13 h17 v44 h-17 v13 h30 z" fill="currentColor"/>
+      <rect x="42" y="27" width="16" height="46" fill="#6E0E0E"/>
+    </svg>
+    <div class="footer-signature">LINKSMAXING · DALLAS · 2026</div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <div class="footer-col-head">Site</div>
+        <a href="/index">The AI Visibility Index</a>
+        <a href="/method">Method</a>
+        <a href="/proof">Case entries</a>
+        <a href="/manifesto">Manifesto</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Contact</div>
+        <a href="mailto:harper@linksmaxing.com">harper@linksmaxing.com</a>
+        <span>Dallas, TX</span>
+      </div>
+      <div class="footer-col footer-col-colophon">
+        <div class="footer-col-head">Colophon</div>
+        <p>Set in <strong>Saira Condensed</strong>, <strong>Inter</strong>, and <strong>JetBrains Mono</strong>. Signal: oxblood <em>#6E0E0E</em>. Built on evidence. Made in Dallas. No advertising accepted, ever.</p>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 LinksMaxing · All rights reserved</div>
+  </div>
+</footer>
+
+<script is:inline>
+(function(){
+  var stickyNav = document.querySelector('.nav-sticky');
+  var trigger = document.querySelector('.page-head');
+  if (!stickyNav || !trigger || !('IntersectionObserver' in window)) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      var show = !e.isIntersecting;
+      stickyNav.classList.toggle('visible', show);
+      stickyNav.setAttribute('aria-hidden', show ? 'false' : 'true');
+    });
+  }, { rootMargin: '-40px 0px 0px 0px', threshold: 0 });
+  obs.observe(trigger);
+})();
+</script>
+</body>
+</html>

@@ -1,40 +1,973 @@
 ---
-import Layout from '../layouts/Layout.astro';
 ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact · LinksMaxing</title>
+<meta name="description" content="Request your scan. One inbox. One person. Same business day response. AI answers, search performance, site structure. Cross-referenced.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&family=Saira+Condensed:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ==== TOKENS ==== */
+:root {
+  --bone: #F4F1EA;
+  --ink:  #151412;
+  --ox:   #6E0E0E;
+  --ox-hover: #8B1616;
+  --ink-dim:    rgba(21, 20, 18, 0.72);
+  --ink-dimmer: rgba(21, 20, 18, 0.5);
+  --ink-rule:   rgba(21, 20, 18, 0.22);
+  --ink-soft:   rgba(21, 20, 18, 0.14);
+  --bone-dim:    rgba(244, 241, 234, 0.72);
+  --bone-dimmer: rgba(244, 241, 234, 0.5);
+  --bone-rule:   rgba(244, 241, 234, 0.22);
+  --bone-soft:   rgba(244, 241, 234, 0.14);
+  --font-d: 'Saira Condensed', Impact, sans-serif;
+  --font-b: 'Inter', system-ui, sans-serif;
+  --font-m: 'JetBrains Mono', ui-monospace, monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  background: var(--bone);
+  color: var(--ink);
+  font-family: var(--font-b);
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--ox); color: var(--bone); }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 64px); }
 
-<Layout
-  title="Contact — LinksMaxing"
-  description="Talk to us. Every engagement starts with a real conversation."
-  activeNav="contact"
->
-  <div class="page-header">
-    <div class="page-eyebrow">Contact</div>
-    <h1 class="page-title">Talk to <em>us.</em></h1>
-    <p class="page-lead">The fastest way in is a short email or a booked call. We usually respond within one business day.</p>
+/* ==== TOP NAV ==== */
+.nav-top {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 20px 0 16px; border-bottom: 0.5px solid var(--ink-soft); gap: 24px;
+}
+.nav-brand { display: inline-flex; align-items: baseline; gap: 10px; }
+.nav-brand .logo { font-weight: 500; font-size: 15px; letter-spacing: -0.005em; line-height: 1; }
+.nav-brand .logo-sub {
+  font-family: var(--font-m);
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-dimmer);
+  line-height: 1;
+}
+.nav-links { display: flex; gap: clamp(18px, 2.2vw, 28px); align-items: baseline; }
+.nav-links a {
+  font-family: var(--font-m);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-links a.active { color: var(--ox); }
+.nav-cta {
+  font-family: var(--font-m);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ox);
+  border-bottom: 1px solid var(--ox);
+  padding-bottom: 3px;
+  white-space: nowrap;
+}
+
+/* ==== STICKY NAV ==== */
+.nav-sticky {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(244, 241, 234, 0.94);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 0.5px solid var(--ink-rule);
+  transform: translateY(-105%);
+  transition: transform 380ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  pointer-events: none;
+}
+.nav-sticky.visible { transform: translateY(0); pointer-events: auto; }
+.nav-sticky-inner {
+  max-width: 1280px; margin: 0 auto;
+  padding: 12px clamp(20px, 4vw, 64px);
+  display: flex; justify-content: space-between; align-items: center; gap: 24px;
+}
+.nav-sticky-brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 500; font-size: 14px; color: var(--ink); white-space: nowrap; }
+.nav-sticky-mark { display: block; width: 26px; height: 26px; color: var(--ink); }
+.nav-sticky-links { display: flex; gap: clamp(16px, 2vw, 26px); }
+.nav-sticky-links a {
+  font-family: var(--font-m);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.nav-sticky-links a.active { color: var(--ox); }
+.nav-sticky-cta {
+  font-family: var(--font-m);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ox);
+  border-bottom: 1px solid var(--ox);
+  padding-bottom: 3px;
+}
+
+/* ==== PAGE HEADER ==== */
+.page-head {
+  padding: clamp(40px, 6vh, 72px) 0 clamp(56px, 9vh, 96px);
+  border-bottom: 0.5px solid var(--ink-rule);
+}
+.page-label {
+  display: inline-block;
+  font-family: var(--font-m);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ox);
+  margin-bottom: 22px;
+}
+.page-title {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(56px, 11vw, 180px);
+  line-height: 0.86;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  text-wrap: balance;
+}
+.page-title .ox { color: var(--ox); }
+.page-dek {
+  font-size: clamp(17px, 1.4vw, 21px);
+  line-height: 1.55;
+  color: var(--ink-dim);
+  max-width: 740px;
+}
+
+/* ==== PRIMARY SCAN REQUEST BLOCK ==== */
+.scan-block {
+  padding: clamp(64px, 10vh, 120px) 0 clamp(48px, 7vh, 88px);
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(40px, 6vw, 96px);
+  align-items: start;
+}
+.scan-block-copy {}
+.scan-block-marker {
+  font-family: var(--font-m);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ox);
+  margin-bottom: 20px;
+}
+.scan-block-h {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(38px, 5.5vw, 78px);
+  line-height: 0.96;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  text-wrap: balance;
+}
+.scan-block-h .ox { color: var(--ox); }
+.scan-block-body {
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: var(--ink-dim);
+  max-width: 560px;
+  margin-bottom: 32px;
+}
+.scan-block-body p + p { margin-top: 16px; }
+.scan-block-body em { color: var(--ox); font-style: normal; font-weight: 500; }
+
+.scan-block-cta {
+  display: inline-block;
+  background: var(--ox);
+  color: var(--bone);
+  font-family: var(--font-m);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 22px 40px;
+  transition: background 0.2s;
+}
+.scan-block-cta:hover { background: var(--ox-hover); }
+.scan-block-alt {
+  margin-top: 22px;
+  font-size: 14px;
+  color: var(--ink-dim);
+}
+.scan-block-alt a { color: var(--ink); border-bottom: 1px solid var(--ink-rule); padding-bottom: 1px; }
+
+/* Right column — what to include */
+.request-box {
+  padding: 32px;
+  border: 1px solid var(--ink);
+  background: rgba(21,20,18,0.02);
+}
+.request-box-label {
+  font-family: var(--font-m);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ox);
+  margin-bottom: 14px;
+}
+.request-box-h {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin-bottom: 22px;
+}
+.request-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.request-list li {
+  padding: 14px 0;
+  border-top: 0.5px solid var(--ink-soft);
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 12px;
+  align-items: baseline;
+}
+.request-list li:first-child { border-top: none; padding-top: 0; }
+.request-list li:last-child { padding-bottom: 0; }
+.request-list-num {
+  font-family: var(--font-m);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--ox);
+}
+.request-list-body {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.request-list-body em { color: var(--ox); font-style: normal; font-weight: 500; }
+
+/* ==== TIMELINE — what happens next ==== */
+.content-section {
+  padding: clamp(56px, 8vh, 96px) 0;
+  border-top: 0.5px solid var(--ink-soft);
+}
+.section-marker {
+  font-family: var(--font-m);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ox);
+  margin-bottom: 22px;
+}
+.content-h {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(34px, 5vw, 68px);
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-bottom: 44px;
+  max-width: 900px;
+  text-wrap: balance;
+}
+.content-h .ox { color: var(--ox); }
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+.step-cell {
+  padding: 30px clamp(14px, 2vw, 26px) 30px 0;
+  border-right: 0.5px solid var(--ink-soft);
+}
+.step-cell:last-child { border-right: none; padding-right: 0; }
+.step-cell:not(:first-child) { padding-left: clamp(14px, 2vw, 26px); }
+.step-num {
+  font-family: var(--font-m);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ox);
+  margin-bottom: 16px;
+}
+.step-h {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: 22px;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  margin-bottom: 12px;
+}
+.step-body {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-dim);
+  margin-bottom: 16px;
+}
+.step-when {
+  font-family: var(--font-m);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ox);
+  padding-top: 12px;
+  border-top: 0.5px solid var(--ink-soft);
+  display: block;
+}
+
+/* ==== OTHER CHANNELS ==== */
+.channels-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  margin-top: 32px;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+.channel {
+  padding: 26px clamp(14px, 2vw, 26px) 26px 0;
+  border-right: 0.5px solid var(--ink-soft);
+  border-bottom: 0.5px solid var(--ink-soft);
+}
+.channel:nth-child(even) { border-right: none; padding-right: 0; padding-left: clamp(14px, 2vw, 26px); }
+.channel:nth-last-child(-n+2) { border-bottom: none; }
+.channel-label {
+  font-family: var(--font-m);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ox);
+  margin-bottom: 12px;
+}
+.channel-h {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: 22px;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin-bottom: 10px;
+}
+.channel-h a {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 2px;
+}
+.channel-h a:hover { color: var(--ox); border-bottom-color: var(--ox); }
+.channel-body {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-dim);
+}
+
+/* ==== WHAT WE WON'T DO ==== */
+.refuse-list {
+  margin: 32px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.refuse-list li {
+  padding: 18px 0;
+  border-top: 0.5px solid var(--ink-soft);
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 14px;
+  align-items: baseline;
+}
+.refuse-list li:first-child { border-top: 1px solid var(--ink); }
+.refuse-list li:last-child { border-bottom: 1px solid var(--ink); }
+.refuse-mark {
+  font-family: var(--font-m);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ox);
+  line-height: 1;
+  padding-top: 2px;
+}
+.refuse-body {
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.refuse-body em { color: var(--ox); font-style: normal; font-weight: 500; }
+
+/* ==== PRICING NOTE — commitment, not refusal ==== */
+.pricing-note {
+  margin-top: 44px;
+  padding-top: 32px;
+  border-top: 3px solid var(--ink);
+}
+.pricing-note-label {
+  font-family: var(--font-m);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ox);
+  margin-bottom: 16px;
+}
+.pricing-note-body {
+  font-family: var(--font-b);
+  font-size: 17.5px;
+  line-height: 1.6;
+  color: var(--ink);
+  max-width: 820px;
+}
+.pricing-note-body em {
+  color: var(--ox);
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* ==== DETAILS ==== */
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(20px, 3vw, 40px);
+  margin-top: 40px;
+  padding: 28px 0;
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+}
+.details-cell { display: flex; flex-direction: column; gap: 8px; }
+.details-label {
+  font-family: var(--font-m);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-dimmer);
+}
+.details-value {
+  font-family: var(--font-d);
+  font-weight: 900;
+  font-size: clamp(20px, 2.2vw, 28px);
+  line-height: 1;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.details-value.small {
+  font-family: var(--font-b);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 1.35;
+}
+
+/* ==== FOOTER ==== */
+.footer {
+  padding: clamp(60px, 8vh, 100px) 0 clamp(36px, 5vh, 60px);
+  background: var(--ink);
+  color: var(--bone);
+  margin-top: clamp(72px, 10vh, 120px);
+}
+.footer-mark { width: 32px; height: 32px; color: var(--bone); margin-bottom: 18px; }
+.footer-signature {
+  font-family: var(--font-m);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--bone-dim);
+  margin-bottom: clamp(48px, 6vh, 72px);
+  padding-bottom: 28px;
+  border-bottom: 0.5px solid var(--bone-rule);
+}
+.footer-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  gap: clamp(28px, 4vw, 64px);
+  margin-bottom: 40px;
+}
+.footer-col-head {
+  font-family: var(--font-m);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--bone-dim);
+  margin-bottom: 14px;
+}
+.footer-col a, .footer-col span, .footer-col p {
+  display: block;
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: var(--bone-dim);
+}
+.footer-col a:hover { color: var(--bone); }
+.footer-col-colophon p { font-size: 12.5px; line-height: 1.75; color: var(--bone-dimmer); max-width: 380px; }
+.footer-col-colophon p em { color: var(--ox); font-style: normal; }
+.footer-copy {
+  padding-top: 22px;
+  border-top: 0.5px solid var(--bone-soft);
+  font-family: var(--font-m);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--bone-dimmer);
+}
+
+/* ==== MOBILE ==== */
+@media (max-width: 900px) {
+  .scan-block { grid-template-columns: 1fr; gap: 40px; }
+  .steps-grid { grid-template-columns: repeat(2, 1fr); }
+  .step-cell {
+    border-right: 0.5px solid var(--ink-soft);
+    border-bottom: 0.5px solid var(--ink-soft);
+  }
+  .step-cell:nth-child(even) { border-right: none; padding-right: 0; padding-left: clamp(14px, 2vw, 26px); }
+  .step-cell:nth-last-child(-n+2) { border-bottom: none; }
+  .channels-grid { grid-template-columns: 1fr; }
+  .channel { border-right: none; padding-right: 0; padding-left: 0; border-bottom: 0.5px solid var(--ink-soft); }
+  .channel:nth-child(even) { padding-left: 0; }
+  .channel:nth-last-child(-n+2) { border-bottom: 0.5px solid var(--ink-soft); }
+  .channel:last-child { border-bottom: none; }
+  .details-grid { grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  .footer-cols { grid-template-columns: 1fr 1fr; }
+  .footer-col-colophon { grid-column: 1 / -1; }
+}
+
+@media (max-width: 720px) {
+  html, body { -webkit-text-size-adjust: 100%; }
+  .container { padding: 0 20px; }
+
+  .nav-top { padding: 14px 0 12px; align-items: center; gap: 14px; }
+  .nav-top .nav-links { display: none; }
+  .nav-brand .logo { font-size: 14px; }
+  .nav-brand .logo-sub { font-size: 8.5px; letter-spacing: 0.22em; }
+  .nav-cta { font-size: 10px; letter-spacing: 0.14em; }
+  .nav-sticky-inner { padding: 10px 20px; gap: 14px; }
+  .nav-sticky-brand { font-size: 13px; gap: 8px; }
+  .nav-sticky-mark { width: 22px; height: 22px; }
+  .nav-sticky-links { display: none; }
+  .nav-sticky-cta { font-size: 10px; letter-spacing: 0.14em; }
+
+  .page-head { padding: 32px 0 40px; }
+  .page-label { font-size: 10px; margin-bottom: 18px; }
+  .page-title { font-size: clamp(48px, 15vw, 96px); margin-bottom: 22px; }
+  .page-dek { font-size: 15.5px; }
+
+  .scan-block { padding: 44px 0 32px; gap: 32px; }
+  .scan-block-marker { font-size: 10px; margin-bottom: 14px; }
+  .scan-block-h { font-size: clamp(30px, 9vw, 52px); margin-bottom: 22px; }
+  .scan-block-body { font-size: 15.5px; margin-bottom: 24px; }
+  .scan-block-cta { padding: 18px 30px; font-size: 12px; letter-spacing: 0.16em; }
+
+  .request-box { padding: 22px; }
+  .request-box-h { font-size: 20px; margin-bottom: 18px; }
+  .request-list li { padding: 12px 0; }
+  .request-list-body { font-size: 13.5px; }
+
+  .content-section { padding: 44px 0; }
+  .section-marker { font-size: 10px; margin-bottom: 16px; }
+  .content-h { font-size: clamp(28px, 8vw, 50px); margin-bottom: 30px; }
+
+  .step-num { font-size: 9.5px; margin-bottom: 12px; }
+  .step-h { font-size: 19px; margin-bottom: 10px; }
+  .step-body { font-size: 13.5px; }
+  .step-when { font-size: 9.5px; padding-top: 10px; }
+  .step-cell { padding: 22px clamp(12px, 2vw, 20px) 22px 0; }
+  .step-cell:not(:first-child) { padding-left: clamp(12px, 2vw, 20px); }
+
+  .channel { padding: 22px 0; }
+  .channel-label { font-size: 9.5px; margin-bottom: 10px; }
+  .channel-h { font-size: 19px; margin-bottom: 8px; }
+  .channel-body { font-size: 13.5px; }
+
+  .refuse-list li { grid-template-columns: 22px 1fr; gap: 12px; padding: 16px 0; }
+  .refuse-mark { font-size: 13px; }
+  .refuse-body { font-size: 14.5px; }
+
+  .pricing-note { margin-top: 32px; padding-top: 24px; }
+  .pricing-note-label { font-size: 10px; letter-spacing: 0.2em; margin-bottom: 12px; }
+  .pricing-note-body { font-size: 15.5px; line-height: 1.6; }
+
+  .details-grid { gap: 20px 16px; padding: 22px 0; margin-top: 32px; }
+  .details-label { font-size: 9px; letter-spacing: 0.18em; }
+  .details-value { font-size: clamp(18px, 4.5vw, 24px); }
+  .details-value.small { font-size: 14px; }
+
+  .footer { padding: 52px 0 40px; margin-top: 56px; }
+  .footer-signature { font-size: 10px; margin-bottom: 40px; padding-bottom: 22px; }
+  .footer-cols { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .footer-col-colophon { grid-column: 1 / -1; }
+  .footer-col-head { font-size: 9.5px; margin-bottom: 10px; }
+  .footer-col a, .footer-col span { font-size: 12.5px; }
+  .footer-copy { font-size: 9.5px; padding-top: 18px; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  .page-title { font-size: clamp(42px, 16vw, 80px); }
+  .steps-grid { grid-template-columns: 1fr; }
+  .step-cell { border-right: none; padding-right: 0; padding-left: 0; }
+  .step-cell:nth-child(even) { padding-left: 0; }
+  .details-grid { grid-template-columns: 1fr 1fr; }
+  .footer-cols { grid-template-columns: 1fr; gap: 24px; }
+}
+a, button, [role="button"], .cta, .cta-primary, .cta-ghost, .nav-link, [href], [onclick] { cursor: pointer; }
+</style>
+<link rel="canonical" href="https://linksmaxing.com/contact/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="LinksMaxing">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://linksmaxing.com/contact/">
+<meta property="og:title" content="Contact · LinksMaxing">
+<meta property="og:description" content="Request your scan. One inbox. One person. Same business day response. AI answers, search performance, site structure. Cross-referenced.">
+<meta property="og:image" content="https://linksmaxing.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="LinksMaxing">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://linksmaxing.com/contact/">
+<meta name="twitter:title" content="Contact · LinksMaxing">
+<meta name="twitter:description" content="Request your scan. One inbox. One person. Same business day response. AI answers, search performance, site structure. Cross-referenced.">
+<meta name="twitter:image" content="https://linksmaxing.com/og-image.png">
+
+<!-- Favicon + touch icons -->
+<link rel="icon" type="image/png" href="/linksmaxing-logo.png">
+<link rel="apple-touch-icon" href="/linksmaxing-logo.png">
+
+<!-- Schema.org (JSON-LD) -->
+<script type="application/ld+json" is:inline>
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://linksmaxing.com/#organization",
+    "name": "LinksMaxing",
+    "alternateName": "LinksMaxing Dallas",
+    "url": "https://linksmaxing.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://linksmaxing.com/linksmaxing-logo.png",
+      "width": 512,
+      "height": 512
+    },
+    "description": "AI visibility measurement. Three sources cross-referenced. Real data, real decisions.",
+    "foundingDate": "2026",
+    "founder": {
+      "@type": "Person",
+      "name": "Harper Thompson"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dallas",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "harper@linksmaxing.com",
+      "contactType": "sales",
+      "areaServed": "US",
+      "availableLanguage": "en"
+    },
+    "sameAs": [],
+    "knowsAbout": [
+      "AI Visibility Measurement",
+      "Search Engine Optimization",
+      "ChatGPT Named Business Recommendations",
+      "Claude AI Optimization",
+      "Google AI Overviews",
+      "Structured Data",
+      "Schema.org",
+      "Local Search Optimization"
+    ],
+    "slogan": "AI visibility, measured."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://linksmaxing.com/contact/",
+    "name": "Contact \u00b7 LinksMaxing",
+    "description": "Request your scan. One inbox. One person. Same business day response. AI answers, search performance, site structure. Cross-referenced.",
+    "inLanguage": "en-US",
+    "isPartOf": {
+      "@id": "https://linksmaxing.com/#website"
+    },
+    "about": {
+      "@id": "https://linksmaxing.com/#organization"
+    }
+  }
+]
+</script>
+</head>
+<body>
+
+<!-- STICKY NAV -->
+<nav class="nav-sticky" aria-hidden="true">
+  <div class="nav-sticky-inner">
+    <a href="/" class="nav-sticky-brand">
+      <svg class="nav-sticky-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M8 15 h30 v13 h-17 v44 h17 v13 h-30 z" fill="currentColor"/>
+        <path d="M92 15 h-30 v13 h17 v44 h-17 v13 h30 z" fill="currentColor"/>
+        <rect x="42" y="27" width="16" height="46" fill="#6E0E0E"/>
+      </svg>
+      <span>linksmaxing</span>
+    </a>
+    <div class="nav-sticky-links">
+      <a href="/index">The Index</a>
+      <a href="/method">Method</a>
+      <a href="/proof">Proof</a>
+      <a href="/manifesto">Manifesto</a>
+      <a href="/contact" class="active">Contact</a>
+    </div>
+    <a href="mailto:harper@linksmaxing.com" class="nav-sticky-cta">Request scan →</a>
   </div>
+</nav>
 
-  <section class="block">
-    <div class="sec-num">01 / direct</div>
-    <h2 class="sec-head">Reach <em>Harper.</em></h2>
-    <div class="article-body">
-      <p><strong>Email —</strong> <a href="mailto:harper@linksmaxing.com">harper@linksmaxing.com</a></p>
-      <p><strong>Phone —</strong> +1 214 · · · ····</p>
-      <p><strong>Location —</strong> Dallas, Texas. In-person meetings by appointment.</p>
+<div class="container">
+
+  <!-- TOP NAV -->
+  <nav class="nav-top">
+    <a href="/" class="nav-brand">
+      <span class="logo">linksmaxing</span>
+      <span class="logo-sub">dallas · tx</span>
+    </a>
+    <div class="nav-links">
+      <a href="/index">The Index</a>
+      <a href="/method">Method</a>
+      <a href="/proof">Proof</a>
+      <a href="/manifesto">Manifesto</a>
+      <a href="/contact" class="active">Contact</a>
     </div>
-  </section>
+    <a href="mailto:harper@linksmaxing.com" class="nav-cta">Request scan →</a>
+  </nav>
 
-  <section class="block">
-    <div class="sec-num">02 / what to send</div>
-    <h2 class="sec-head">A short paragraph is <em>plenty.</em></h2>
-    <div class="article-body">
-      <p>Tell us your business name, what you sell, roughly where your customers are, and what you're trying to fix. We'll usually respond with a proposed time to talk or, if we already have enough context, a short scoping note.</p>
-      <p>If you'd rather skip the email and book straight into a call, that works too.</p>
+  <main>
+
+    <!-- PAGE HEADER -->
+    <header class="page-head">
+      <div class="page-label">Contact</div>
+      <h1 class="page-title">Every conversation starts with <span class="ox">a scan.</span></h1>
+      <p class="page-dek">One inbox. One person. One answer within a business day. If you want to know where you stand across AI answers, search, and structure, request a scan. If you have another kind of question, ask it directly. No forms in a queue, no nurture sequences.</p>
+    </header>
+
+    <!-- SCAN REQUEST BLOCK -->
+    <section class="scan-block">
+      <div class="scan-block-copy">
+        <div class="scan-block-marker">The scan request</div>
+        <h2 class="scan-block-h">Send one email. <span class="ox">Get real data.</span></h2>
+        <div class="scan-block-body">
+          <p>The scan runs the same way for every engagement. Hundreds of query variants per category, run against ChatGPT, Claude, and Google AI. Cross-referenced with Google Search Console and a rendered-markup audit of the site.</p>
+          <p>You get a documented brief. Every finding tied to the source that surfaced it. Every recommendation carrying the correlation that earned it. <em>One engagement. One price.</em></p>
+        </div>
+        <a href="mailto:harper@linksmaxing.com?subject=LinksMaxing%20scan%20request&body=Business%20name%3A%0AURL%3A%0AWhat%20category%20queries%20your%20customers%20ask%3A%0AAnything%20specific%20you%20want%20us%20to%20look%20at%3A" class="scan-block-cta">Request your scan →</a>
+        <p class="scan-block-alt">Or write directly to <a href="mailto:harper@linksmaxing.com">harper@linksmaxing.com</a></p>
+      </div>
+
+      <aside class="request-box">
+        <div class="request-box-label">Include in your email</div>
+        <div class="request-box-h">Four lines. That's it.</div>
+        <ol class="request-list">
+          <li>
+            <div class="request-list-num">01</div>
+            <div class="request-list-body"><em>Business name.</em> What you go by. Not the LLC. The actual customer-facing name.</div>
+          </li>
+          <li>
+            <div class="request-list-num">02</div>
+            <div class="request-list-body"><em>URL.</em> The site you want measured. If you have multiple, tell us which one is primary.</div>
+          </li>
+          <li>
+            <div class="request-list-num">03</div>
+            <div class="request-list-body"><em>Category queries.</em> The natural-language questions your actual customers ask before they buy. Not keywords. Real sentences.</div>
+          </li>
+          <li>
+            <div class="request-list-num">04</div>
+            <div class="request-list-body"><em>Anything specific.</em> A worry, a competitor, a category you think you should be named in but are not. Optional but useful.</div>
+          </li>
+        </ol>
+      </aside>
+    </section>
+
+    <!-- WHAT HAPPENS NEXT -->
+    <section class="content-section">
+      <div class="section-marker">What happens next</div>
+      <h2 class="content-h">Same-day reply. First scan within <span class="ox">two weeks.</span></h2>
+      <div class="steps-grid">
+        <div class="step-cell">
+          <div class="step-num">01 · Reach out</div>
+          <div class="step-h">You send the email.</div>
+          <p class="step-body">Four lines minimum. Harper reads it, no auto-responder. If we can measure it, we say yes. If we can't, we say so and tell you why.</p>
+          <span class="step-when">Same business day</span>
+        </div>
+        <div class="step-cell">
+          <div class="step-num">02 · Fit call</div>
+          <div class="step-h">Twenty minutes.</div>
+          <p class="step-body">A real conversation. Not a pitch. We tell you what a scan on your business would surface, what it would cost, and what to expect from the brief.</p>
+          <span class="step-when">Within 3 business days</span>
+        </div>
+        <div class="step-cell">
+          <div class="step-num">03 · Scan runs</div>
+          <div class="step-h">Three sources, cross-referenced.</div>
+          <p class="step-body">Hundreds of query variants per category. Search Console pulled. Site structure audited. Every finding logged with the source that surfaced it.</p>
+          <span class="step-when">7 to 14 days</span>
+        </div>
+        <div class="step-cell">
+          <div class="step-num">04 · Brief delivered</div>
+          <div class="step-h">A spec, not a report.</div>
+          <p class="step-body">Every fix scoped, sourced, and mapped to expected lift on both AI citation and search rank. Your team ships, or ours does. Either way we re-scan in 30 days.</p>
+          <span class="step-when">Delivered live</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- OTHER CHANNELS -->
+    <section class="content-section">
+      <div class="section-marker">Other ways to reach us</div>
+      <h2 class="content-h">Not looking for a scan. Still want to talk.</h2>
+      <div class="channels-grid">
+        <div class="channel">
+          <div class="channel-label">Direct</div>
+          <h3 class="channel-h"><a href="mailto:harper@linksmaxing.com">harper@linksmaxing.com</a></h3>
+          <p class="channel-body">Goes straight to Harper. Same-day reply during business hours. No triage.</p>
+        </div>
+        <div class="channel">
+          <div class="channel-label">Publication</div>
+          <h3 class="channel-h"><a href="/index">The AI Visibility Index</a></h3>
+          <p class="channel-body">Quarterly issue drops with the full dataset. To be notified when Vol 1 · No 1 ships, write with subject line "Index."</p>
+        </div>
+        <div class="channel">
+          <div class="channel-label">Press · Speaking</div>
+          <h3 class="channel-h"><a href="mailto:harper@linksmaxing.com?subject=Press%20request">Press request</a></h3>
+          <p class="channel-body">Journalists, podcasters, event organizers. We share original data if the story is honest. Subject line "Press."</p>
+        </div>
+        <div class="channel">
+          <div class="channel-label">Partnerships</div>
+          <h3 class="channel-h"><a href="mailto:harper@linksmaxing.com?subject=Partnership%20inquiry">Partnership inquiry</a></h3>
+          <p class="channel-body">Agencies, developer teams, and platforms who want measurement without owning the tooling. Subject line "Partnership."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT WE WON'T DO -->
+    <section class="content-section">
+      <div class="section-marker">What we will not do</div>
+      <h2 class="content-h">Straight rules. So you know before you write.</h2>
+      <ul class="refuse-list">
+        <li>
+          <div class="refuse-mark">×</div>
+          <div class="refuse-body">We will not add you to a nurture sequence. One email in, one email back. If a follow-up is warranted, we send it. Otherwise the inbox is quiet.</div>
+        </li>
+        <li>
+          <div class="refuse-mark">×</div>
+          <div class="refuse-body">We will not publish your name or your data in <em>The Index</em> without written permission. Case entries publish anonymized. Named data ships only when you consent to it.</div>
+        </li>
+        <li>
+          <div class="refuse-mark">×</div>
+          <div class="refuse-body">We will not tell you the outcome we think you want to hear. If a category is unwinnable, we say so. If your current agency shipped the fix and it worked, we say that too.</div>
+        </li>
+      </ul>
+
+      <div class="pricing-note">
+        <div class="pricing-note-label">On pricing</div>
+        <p class="pricing-note-body">Any "free report" we send will include <em>real data you are welcome to use.</em> Our scans take real hours and real API cost. It is priced accordingly. What we send is the receipt.</p>
+      </div>
+    </section>
+
+    <!-- DETAILS -->
+    <section class="content-section">
+      <div class="section-marker">Details</div>
+      <h2 class="content-h">The particulars.</h2>
+      <div class="details-grid">
+        <div class="details-cell">
+          <div class="details-label">Where</div>
+          <div class="details-value">Dallas · TX</div>
+        </div>
+        <div class="details-cell">
+          <div class="details-label">Response time</div>
+          <div class="details-value">Same business day</div>
+        </div>
+        <div class="details-cell">
+          <div class="details-label">Hours</div>
+          <div class="details-value small">Mon to Fri · 9am to 6pm Central</div>
+        </div>
+        <div class="details-cell">
+          <div class="details-label">Filed as</div>
+          <div class="details-value small">LinksMaxing · Dallas, TX</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <svg class="footer-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M8 15 h30 v13 h-17 v44 h17 v13 h-30 z" fill="currentColor"/>
+      <path d="M92 15 h-30 v13 h17 v44 h-17 v13 h30 z" fill="currentColor"/>
+      <rect x="42" y="27" width="16" height="46" fill="#6E0E0E"/>
+    </svg>
+    <div class="footer-signature">LINKSMAXING · DALLAS · 2026</div>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <div class="footer-col-head">Site</div>
+        <a href="/index">The AI Visibility Index</a>
+        <a href="/method">Method</a>
+        <a href="/proof">Case entries</a>
+        <a href="/manifesto">Manifesto</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Contact</div>
+        <a href="mailto:harper@linksmaxing.com">harper@linksmaxing.com</a>
+        <span>Dallas, TX</span>
+      </div>
+      <div class="footer-col footer-col-colophon">
+        <div class="footer-col-head">Colophon</div>
+        <p>Set in <strong>Saira Condensed</strong>, <strong>Inter</strong>, and <strong>JetBrains Mono</strong>. Signal: oxblood <em>#6E0E0E</em>. Built on evidence. Made in Dallas. No advertising accepted, ever.</p>
+      </div>
     </div>
-  </section>
 
-  <section class="cta-block">
-    <h2 class="cta-head">Book a <em>call.</em></h2>
-    <p class="cta-sub">Twenty minutes. No prep needed on your end.</p>
-    <a href="mailto:harper@linksmaxing.com?subject=Booking%20a%20call" class="btn">Email to book →</a>
-  </section>
-</Layout>
+    <div class="footer-copy">© 2026 LinksMaxing · All rights reserved</div>
+  </div>
+</footer>
+
+<script is:inline>
+(function(){
+  var stickyNav = document.querySelector('.nav-sticky');
+  var trigger = document.querySelector('.page-head');
+  if (!stickyNav || !trigger || !('IntersectionObserver' in window)) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      var show = !e.isIntersecting;
+      stickyNav.classList.toggle('visible', show);
+      stickyNav.setAttribute('aria-hidden', show ? 'false' : 'true');
+    });
+  }, { rootMargin: '-40px 0px 0px 0px', threshold: 0 });
+  obs.observe(trigger);
+})();
+</script>
+</body>
+</html>
