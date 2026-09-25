@@ -61,6 +61,17 @@ a { color: inherit; text-decoration: none; }
   border-bottom: 0.5px solid var(--ink-soft);
   gap: 24px;
 }
+
+/* Main nav logo mark */
+.nav-mark {
+  display: block;
+  width: 22px;
+  height: 22px;
+  color: var(--ink);
+  flex-shrink: 0;
+  align-self: center;
+}
+
 .nav-brand { display: inline-flex; align-items: baseline; gap: 10px; }
 .nav-brand .logo { font-weight: 500; font-size: 15px; letter-spacing: -0.005em; line-height: 1; }
 .nav-brand .logo-sub {
@@ -786,6 +797,11 @@ a, button, [role="button"], .cta, .cta-primary, .cta-ghost, .nav-link, [href], [
   <!-- TOP NAV -->
   <nav class="nav-top">
     <a href="/" class="nav-brand">
+      <svg class="nav-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M8 15 h30 v13 h-17 v44 h17 v13 h-30 z" fill="currentColor"/>
+        <path d="M92 15 h-30 v13 h17 v44 h-17 v13 h30 z" fill="currentColor"/>
+        <rect x="42" y="27" width="16" height="46" fill="#6E0E0E"/>
+      </svg>
       <span class="logo">linksmaxing</span>
       <span class="logo-sub">dallas · tx</span>
     </a>
